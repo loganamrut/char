@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { GoogleAnalyticsTracker } from '@/components/GoogleAnalytics';
+import { CookieConsent } from '@/components/CookieConsent';
 import { SITE_CONFIG } from '@/lib/constants/site-config';
 import { getWebApplicationSchema, getWebSiteSchema } from '@/lib/seo/json-ld';
 
@@ -95,16 +96,32 @@ export default function RootLayout({
         {SITE_CONFIG.googleAnalyticsId && (
           <>
             <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.googleAnalyticsId}`}
-            />
-            <Script
-              id="google-analytics-init"
+              id="google-consent-mode-init"
               strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
+
+                  var storedAnalytics = null;
+                  try {
+                    var rawConsent = localStorage.getItem('charcount_cookie_consent_v1');
+                    if (rawConsent) {
+                      var parsed = JSON.parse(rawConsent);
+                      if (parsed && typeof parsed.analytics === 'boolean') {
+                        storedAnalytics = parsed.analytics;
+                      }
+                    }
+                  } catch(e) {}
+
+                  gtag('consent', 'default', {
+                    'analytics_storage': storedAnalytics === true ? 'granted' : 'denied',
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'wait_for_update': 500
+                  });
+
                   gtag('js', new Date());
                   gtag('config', '${SITE_CONFIG.googleAnalyticsId}', {
                     page_path: window.location.pathname,
@@ -112,12 +129,17 @@ export default function RootLayout({
                 `,
               }}
             />
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.googleAnalyticsId}`}
+            />
             <GoogleAnalyticsTracker />
           </>
         )}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

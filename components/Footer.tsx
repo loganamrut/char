@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Cpu } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants/site-config';
+import { CookieSettingsButton } from '@/components/CookieSettingsButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -59,6 +60,9 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton />
+              </li>
             </ul>
           </div>
         </div>

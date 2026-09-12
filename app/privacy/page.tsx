@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, ArrowLeft } from 'lucide-react';
 import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
+import { CookieSettingsButton } from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: {
@@ -92,17 +93,23 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2">
+        <section className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">3. Cookies &amp; Local Storage</h2>
           <p>
-            CharCount.dev does not use tracking cookies to build advertising profiles. If you choose to save custom settings (such as a preferred character limit preset), this preference may be stored locally in your browser&rsquo;s <code className="font-mono text-xs">localStorage</code>. This data never leaves your browser.
+            CharCount.dev uses essential local storage to save your user preferences (such as custom character limit presets and your cookie consent state). This data remains strictly in your local browser and is never uploaded to our servers.
           </p>
+          <p>
+            With your explicit permission, we use anonymous Google Analytics (GA4) cookies to understand general site traffic patterns and improve performance. We operate strictly under <strong>Google Consent Mode v2</strong>, ensuring analytics storage is denied by default until you grant consent. For full details on all cookies used and how to manage them, review our <Link href="/cookies/" className="text-emerald-700 underline font-medium hover:text-emerald-800">Cookie Policy</Link>.
+          </p>
+          <div className="pt-1">
+            <CookieSettingsButton variant="inline" />
+          </div>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-bold text-slate-900">4. Third-Party Services &amp; Advertising</h2>
+          <h2 className="text-lg font-bold text-slate-900">4. Third-Party Services &amp; Privacy Safeguards</h2>
           <p>
-            We do not permit intrusive third-party scripts to attach keyloggers or listeners to the main editor. Any future advertising or anonymous analytics will adhere to strict privacy safeguards and will never inspect or process user text.
+            We do not permit intrusive third-party scripts to attach keyloggers or listeners to the editor. Any analytics or auxiliary services adhere to strict privacy safeguards and will never inspect, transmit, or process your typed text.
           </p>
         </section>
 

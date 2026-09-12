@@ -25,6 +25,7 @@ export const SITE_CONFIG = {
     legal: [
       { label: 'About', href: '/about/' },
       { label: 'Privacy Policy', href: '/privacy/' },
+      { label: 'Cookie Policy', href: '/cookies/' },
       { label: 'Terms of Service', href: '/terms/' },
     ]
   }
