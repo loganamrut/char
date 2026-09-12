@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { GoogleAnalyticsTracker } from '@/components/GoogleAnalytics';
 import { SITE_CONFIG } from '@/lib/constants/site-config';
 import { getWebApplicationSchema, getWebSiteSchema } from '@/lib/seo/json-ld';
 
@@ -90,6 +92,29 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
+        {SITE_CONFIG.googleAnalyticsId && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.googleAnalyticsId}`}
+            />
+            <Script
+              id="google-analytics-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${SITE_CONFIG.googleAnalyticsId}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+            <GoogleAnalyticsTracker />
+          </>
+        )}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

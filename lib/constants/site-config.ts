@@ -6,6 +6,7 @@ export const SITE_CONFIG = {
   description: 'Free online character counter. Count characters with or without spaces, words, sentences, lines and more instantly. Fast, private and easy to use.',
   author: 'CharCount Engineering Team',
   twitterHandle: '@charcountdev',
+  googleAnalyticsId: 'G-HT87NWEHNT',
   navLinks: [
     { label: 'Character Counter', href: '/' },
     { label: 'Word Counter', href: '/word-counter/' },
