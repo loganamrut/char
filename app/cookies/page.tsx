@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Cookie, ArrowLeft, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebPageSchema } from '@/lib/seo/json-ld';
 import { CookieSettingsButton } from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
@@ -34,11 +34,22 @@ export default function CookiePolicyPage() {
     { name: 'Cookie Policy', url: '/cookies/' },
   ]);
 
+  const webPageJsonLd = getWebPageSchema({
+    name: 'Cookie Policy - Global Privacy & Storage Transparency',
+    description:
+      'Learn about the cookies and local storage used on CharCount.dev. Full transparency on Google Consent Mode v2, strictly necessary items, and your privacy rights.',
+    url: 'https://charcount.dev/cookies/',
+  });
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <div>

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema, getHowToSchema } from '@/lib/seo/json-ld';
 import { Type, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -59,6 +59,30 @@ export default function LetterCounterPage() {
   });
 
   const faqJsonLd = getFaqSchema(LETTER_FAQS);
+  const howToJsonLd = getHowToSchema({
+    name: 'How to Count Letters in Text Online',
+    description:
+      'Step-by-step guide to isolating and counting alphabetic letters while excluding spaces, digits, and punctuation.',
+    url: 'https://charcount.dev/letter-counter/',
+    steps: [
+      {
+        name: 'Type or Paste Text',
+        text: 'Enter your string, paragraph, or essay into the letter counter.',
+      },
+      {
+        name: 'Inspect Pure Letter Count',
+        text: 'Review the letter count metric, which automatically isolates alphabetical characters from spaces, numbers, and symbols.',
+      },
+      {
+        name: 'Compare With Total Characters',
+        text: 'Compare pure letter totals against characters with spaces and without spaces in the detailed statistics table.',
+      },
+      {
+        name: 'Copy or Clear',
+        text: 'Copy the analyzed text or clear whitespace formatting instantly.',
+      },
+    ],
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
@@ -70,6 +94,10 @@ export default function LetterCounterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <script
         type="application/ld+json"

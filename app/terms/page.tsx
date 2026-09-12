@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebPageSchema } from '@/lib/seo/json-ld';
 
 export const metadata: Metadata = {
   title: {
@@ -33,11 +33,22 @@ export default function TermsPage() {
     { name: 'Terms of Service', url: '/terms/' },
   ]);
 
+  const webPageJsonLd = getWebPageSchema({
+    name: 'Terms of Service - CharCount.dev',
+    description:
+      'Terms and conditions governing the use of the CharCount.dev website and client-side text tools.',
+    url: 'https://charcount.dev/terms/',
+  });
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
+    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-8 space-y-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <div>

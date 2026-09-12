@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema, getHowToSchema } from '@/lib/seo/json-ld';
 import { FileText, BookOpen, Clock, Layers, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -63,6 +63,30 @@ export default function WordCounterPage() {
   });
 
   const faqJsonLd = getFaqSchema(WORD_FAQS);
+  const howToJsonLd = getHowToSchema({
+    name: 'How to Count Words Online',
+    description:
+      'Step-by-step instructions on counting total words, characters, sentences, and estimated reading time using CharCount.dev.',
+    url: 'https://charcount.dev/word-counter/',
+    steps: [
+      {
+        name: 'Input Your Text',
+        text: 'Type or paste your text into the word counter editor box.',
+      },
+      {
+        name: 'Review Word and Reading Metrics',
+        text: 'Instantly view accurate word count, total characters with/without spaces, sentences, paragraphs, and reading time in minutes.',
+      },
+      {
+        name: 'Analyze Length Requirements',
+        text: 'Check your word count against essay guidelines, blog post standards, or academic limits.',
+      },
+      {
+        name: 'Export or Copy',
+        text: 'Copy the analyzed text or clear whitespace formatting with one click.',
+      },
+    ],
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
@@ -74,6 +98,10 @@ export default function WordCounterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <script
         type="application/ld+json"

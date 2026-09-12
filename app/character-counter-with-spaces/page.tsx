@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema, getHowToSchema } from '@/lib/seo/json-ld';
 import { Hash, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -55,6 +55,30 @@ export default function WithSpacesPage() {
   });
 
   const faqJsonLd = getFaqSchema(WITH_SPACES_FAQS);
+  const howToJsonLd = getHowToSchema({
+    name: 'How to Count Characters With Spaces Online',
+    description:
+      'Step-by-step instructions on measuring total text length inclusive of spaces, tabs, and line breaks.',
+    url: 'https://charcount.dev/character-counter-with-spaces/',
+    steps: [
+      {
+        name: 'Type or Paste Text',
+        text: 'Enter your copy or snippet into the editor box.',
+      },
+      {
+        name: 'Read Character Count With Spaces',
+        text: 'Look at the Characters (with spaces) tile to view exact character length including all whitespace.',
+      },
+      {
+        name: 'Verify Platform Restrictions',
+        text: 'Review character limits for Twitter/X (280), SMS (160), Meta Titles (60), and Instagram captions (2,200).',
+      },
+      {
+        name: 'Copy Ready Text',
+        text: 'Copy the verified text to your clipboard.',
+      },
+    ],
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
@@ -66,6 +90,10 @@ export default function WithSpacesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <script
         type="application/ld+json"

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema, getHowToSchema } from '@/lib/seo/json-ld';
 import { Layers, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -55,6 +55,30 @@ export default function WithoutSpacesPage() {
   });
 
   const faqJsonLd = getFaqSchema(WITHOUT_SPACES_FAQS);
+  const howToJsonLd = getHowToSchema({
+    name: 'How to Count Characters Without Spaces Online',
+    description:
+      'Step-by-step guide to calculating pure character counts excluding spaces, tabs, and newlines.',
+    url: 'https://charcount.dev/character-counter-without-spaces/',
+    steps: [
+      {
+        name: 'Type or Paste Text',
+        text: 'Enter your document, translation string, or manuscript into the editor.',
+      },
+      {
+        name: 'Inspect Characters Without Spaces',
+        text: 'Review the Characters (no spaces) metric which strips all whitespace characters automatically.',
+      },
+      {
+        name: 'Verify Publishing or Billing Quotas',
+        text: 'Use the non-space character tally to accurately price translation projects or meet academic publisher limits.',
+      },
+      {
+        name: 'Copy Analyzed Text',
+        text: 'Copy the text to your clipboard.',
+      },
+    ],
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
@@ -66,6 +90,10 @@ export default function WithoutSpacesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <script
         type="application/ld+json"

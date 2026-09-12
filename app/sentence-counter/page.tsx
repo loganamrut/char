@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema, getHowToSchema } from '@/lib/seo/json-ld';
 import { AlignLeft, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -55,6 +55,30 @@ export default function SentenceCounterPage() {
   });
 
   const faqJsonLd = getFaqSchema(SENTENCE_FAQS);
+  const howToJsonLd = getHowToSchema({
+    name: 'How to Count Sentences in Text Online',
+    description:
+      'Step-by-step instructions on accurately counting sentences and evaluating sentence readability metrics.',
+    url: 'https://charcount.dev/sentence-counter/',
+    steps: [
+      {
+        name: 'Type or Paste Text',
+        text: 'Enter your prose, academic paper, or copy into the sentence counter.',
+      },
+      {
+        name: 'Review Sentence Count',
+        text: 'View accurate sentence counts parsed using terminal punctuation rules while respecting abbreviations and ellipses.',
+      },
+      {
+        name: 'Evaluate Readability',
+        text: 'Check words per sentence and paragraph distribution to maintain engaging writing pace.',
+      },
+      {
+        name: 'Export Analyzed Text',
+        text: 'Copy the text or clean spacing with one click.',
+      },
+    ],
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
@@ -66,6 +90,10 @@ export default function SentenceCounterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <script
         type="application/ld+json"

@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer';
 import { GoogleAnalyticsTracker } from '@/components/GoogleAnalytics';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SITE_CONFIG } from '@/lib/constants/site-config';
-import { getWebApplicationSchema, getWebSiteSchema } from '@/lib/seo/json-ld';
+import { getWebSiteSchema } from '@/lib/seo/json-ld';
 
 export const viewport: Viewport = {
   themeColor: '#047857',
@@ -76,17 +76,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const webAppJsonLd = getWebApplicationSchema();
   const webSiteJsonLd = getWebSiteSchema();
 
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}

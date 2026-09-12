@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Lock, Cpu, Zap } from 'lucide-react';
-import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getAboutPageSchema } from '@/lib/seo/json-ld';
 
 export const metadata: Metadata = {
   title: {
@@ -31,11 +31,22 @@ export default function AboutPage() {
     { name: 'About', url: '/about/' },
   ]);
 
+  const aboutPageJsonLd = getAboutPageSchema({
+    name: 'About CharCount.dev - Privacy-First Writing Utilities',
+    description:
+      'Learn about CharCount.dev, our client-side Unicode-aware text counting architecture, and our commitment to user privacy.',
+    url: 'https://charcount.dev/about/',
+  });
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
       />
 
       <div>

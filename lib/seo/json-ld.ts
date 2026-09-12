@@ -1,54 +1,171 @@
 import { SITE_CONFIG } from '../constants/site-config';
 import { FAQS, FAQItem } from '../constants/faqs';
 
+export function getWebSiteAndOrgSchema() {
+  const domain = SITE_CONFIG.domain;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${domain}/#website`,
+        url: `${domain}/`,
+        name: SITE_CONFIG.name,
+        alternateName: [
+          SITE_CONFIG.shortName,
+          'Character Counter Online',
+          'Free Character Counter',
+        ],
+        description: SITE_CONFIG.description,
+        inLanguage: 'en-US',
+        publisher: {
+          '@id': `${domain}/#organization`,
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${domain}/#organization`,
+        name: SITE_CONFIG.name,
+        url: `${domain}/`,
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${domain}/#logo`,
+          url: `${domain}/icon.svg`,
+          caption: SITE_CONFIG.name,
+        },
+        sameAs: [
+          `https://twitter.com/${SITE_CONFIG.twitterHandle.replace('@', '')}`,
+        ],
+        description:
+          'Provider of fast, private, Unicode-aware text character and word counting utilities.',
+      },
+    ],
+  };
+}
+
+export function getWebSiteSchema() {
+  return getWebSiteAndOrgSchema();
+}
+
 export function getWebApplicationSchema(customTool?: {
   name: string;
   url: string;
   description: string;
+  featureList?: string[];
 }) {
+  const toolUrl = customTool ? customTool.url : `${SITE_CONFIG.domain}/`;
+  const toolName = customTool
+    ? customTool.name
+    : 'CharCount - Online Character Counter';
+  const toolDesc = customTool ? customTool.description : SITE_CONFIG.description;
+
+  const defaultFeatures = [
+    'Real-time live character counting',
+    'Characters with spaces and characters without spaces',
+    'Word, sentence, paragraph, and line counting',
+    'Unicode and emoji-aware grapheme clustering',
+    'Customizable character limits and social media presets',
+    'Text transformation actions (case change, space removal)',
+    '100% client-side privacy-first processing',
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    '@id': `${customTool ? customTool.url : SITE_CONFIG.domain}/#webapp`,
-    name: customTool ? customTool.name : 'CharCount - Online Character Counter',
+    '@id': `${toolUrl}#webapp`,
+    name: toolName,
     alternateName: customTool
       ? [customTool.name, 'CharCount.dev']
       : ['CharCount.dev', 'Character Counter Online', 'Free Character Counter'],
-    url: customTool ? customTool.url : SITE_CONFIG.domain,
-    description: customTool ? customTool.description : SITE_CONFIG.description,
+    url: toolUrl,
+    description: toolDesc,
     applicationCategory: 'UtilityApplication',
-    operatingSystem: 'All',
-    browserRequirements: 'Requires JavaScript. Works in all modern browsers.',
+    operatingSystem: 'All (Web Browser)',
+    browserRequirements:
+      'Requires JavaScript. Works in all modern browsers (Chrome, Safari, Firefox, Edge).',
+    softwareVersion: '1.0',
     inLanguage: 'en-US',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
     },
-    featureList: [
-      'Real-time live character counting',
-      'Characters with spaces and characters without spaces',
-      'Word, sentence, paragraph, and line counting',
-      'Unicode and emoji-aware grapheme clustering',
-      'Customizable character limits and social media presets',
-      'Text transformation actions (case change, space removal)',
-      '100% client-side privacy-first processing'
-    ]
+    provider: {
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+    },
+    featureList: customTool?.featureList || defaultFeatures,
   };
 }
 
-export function getWebSiteSchema() {
+export interface HowToStepItem {
+  name: string;
+  text: string;
+  url?: string;
+}
+
+export function getHowToSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  steps: HowToStepItem[];
+}) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${SITE_CONFIG.domain}/#website`,
-    name: SITE_CONFIG.name,
-    url: SITE_CONFIG.domain,
-    description: SITE_CONFIG.description,
+    '@type': 'HowTo',
+    '@id': `${params.url}#howto`,
+    name: params.name,
+    description: params.description,
+    inLanguage: 'en-US',
+    step: params.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: step.url || params.url,
+    })),
+  };
+}
+
+export function getAboutPageSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${params.url}#aboutpage`,
+    url: params.url,
+    name: params.name,
+    description: params.description,
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@id': `${SITE_CONFIG.domain}/#website`,
+    },
+    mainEntity: {
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+    },
+  };
+}
+
+export function getWebPageSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${params.url}#webpage`,
+    url: params.url,
+    name: params.name,
+    description: params.description,
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@id': `${SITE_CONFIG.domain}/#website`,
+    },
     publisher: {
-      '@type': 'Organization',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.domain,
+      '@id': `${SITE_CONFIG.domain}/#organization`,
     },
   };
 }
@@ -58,14 +175,14 @@ export function getFaqSchema(customFaqs?: FAQItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: list.map(faq => ({
+    mainEntity: list.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 }
 
@@ -81,8 +198,8 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        item: fullUrl
+        item: fullUrl,
       };
-    })
+    }),
   };
 }

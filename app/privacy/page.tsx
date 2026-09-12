@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, ArrowLeft } from 'lucide-react';
-import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
+import { getBreadcrumbSchema, getWebPageSchema } from '@/lib/seo/json-ld';
 import { CookieSettingsButton } from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
@@ -34,11 +34,22 @@ export default function PrivacyPage() {
     { name: 'Privacy Policy', url: '/privacy/' },
   ]);
 
+  const webPageJsonLd = getWebPageSchema({
+    name: 'Privacy Policy - Client-Side Processing Guarantee',
+    description:
+      'Our privacy policy explains our 100% browser-based text processing architecture. Your text is never uploaded, stored, or analyzed on our servers.',
+    url: 'https://charcount.dev/privacy/',
+  });
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
+    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-8 space-y-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <div>
