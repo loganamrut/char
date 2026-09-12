@@ -46,7 +46,7 @@ export function CharacterCounter({ initialText = '' }: { initialText?: string })
     setHistoryIndex((prev) => prev + 1);
   }, [historyIndex]);
 
-  // Regular typing change (debounces history pushes so keystrokes don't flood stack)
+  // Regular typing change (instantaneous without lag)
   const handleTextChange = useCallback((newText: string) => {
     setText(newText);
   }, []);
@@ -75,36 +75,58 @@ export function CharacterCounter({ initialText = '' }: { initialText?: string })
     }
   }, [history, historyIndex]);
 
-  // Text actions
+  // Text actions with multi-browser fallbacks
   const handleCopy = useCallback(async () => {
     if (!text) return;
     try {
-      await navigator.clipboard.writeText(text);
-      showToast('Copied to clipboard!');
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard!');
+        return;
+      }
+      throw new Error('Clipboard API unavailable');
     } catch (e) {
-      showToast('Failed to copy. Please select and copy manually.');
+      // Cross-browser legacy fallback for mobile webviews & older browsers
+      try {
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = text;
+        tempTextArea.style.position = 'fixed';
+        tempTextArea.style.left = '-9999px';
+        tempTextArea.style.top = '0';
+        document.body.appendChild(tempTextArea);
+        tempTextArea.focus();
+        tempTextArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+        if (successful) {
+          showToast('Copied to clipboard!');
+          return;
+        }
+      } catch (err) {}
+      showToast('Please select all text and copy manually.');
     }
   }, [text]);
 
   const handlePaste = useCallback(async () => {
     try {
-      const pasted = await navigator.clipboard.readText();
-      if (pasted) {
-        updateTextWithHistory(text ? text + '\n' + pasted : pasted);
-        showToast('Text pasted from clipboard');
+      if (navigator.clipboard && window.isSecureContext) {
+        const pasted = await navigator.clipboard.readText();
+        if (pasted) {
+          updateTextWithHistory(text ? text + '\n' + pasted : pasted);
+          showToast('Text pasted from clipboard');
+          return;
+        }
       }
+      throw new Error('Paste blocked');
     } catch (e) {
-      showToast('Clipboard access was blocked. Use Ctrl+V / Cmd+V to paste.');
+      showToast('Clipboard access was blocked. Use Ctrl+V / Cmd+V or long-press to paste.');
     }
   }, [text, updateTextWithHistory]);
 
   const handleClear = useCallback(() => {
     if (!text) return;
-    if (text.length > 300) {
-      if (!window.confirm('Are you sure you want to clear all text?')) return;
-    }
     updateTextWithHistory('');
-    showToast('Text cleared');
+    showToast('Text cleared. Click Undo to restore.');
   }, [text, updateTextWithHistory]);
 
   const handleSelectAll = useCallback(() => {

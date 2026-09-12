@@ -26,8 +26,11 @@ export function SeoContent() {
           Different communication channels and editorial standards calculate character limits differently. The matrix below outlines how CharCount.dev analyzes each typographic category:
         </p>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-2xs">
-          <table className="w-full text-left text-sm text-slate-700">
+        <div className="sm:hidden text-[11px] text-slate-500 font-medium">
+          ← Scroll horizontally to inspect full matrix →
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-2xs table-container">
+          <table className="w-full min-w-[540px] text-left text-sm text-slate-700">
             <thead className="bg-slate-100/80 text-xs font-semibold uppercase tracking-wider text-slate-900">
               <tr>
                 <th scope="col" className="px-4 py-3">Typographic Category</th>
@@ -197,8 +200,11 @@ export function SeoContent() {
           1 Word ≈ 5 Characters (without spaces) | 1 Word ≈ 6 Characters (with trailing space)
         </div>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-200">
-          <table className="w-full text-left text-sm text-slate-700">
+        <div className="sm:hidden text-[11px] text-slate-500 font-medium">
+          ← Scroll horizontally to inspect full table →
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200 table-container">
+          <table className="w-full min-w-[500px] text-left text-sm text-slate-700">
             <thead className="bg-slate-100 text-xs font-semibold uppercase text-slate-900">
               <tr>
                 <th className="px-4 py-3">Word Count</th>

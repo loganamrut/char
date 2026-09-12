@@ -36,23 +36,23 @@ export function CharacterLimitControl({
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs space-y-3.5">
+    <div className="rounded-xl border border-slate-200 bg-white p-3.5 sm:p-4 shadow-xs space-y-3.5">
       {/* Header & Limit Input */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <Target className="h-4 w-4 text-emerald-600" aria-hidden="true" />
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <Target className="h-4 w-4 text-emerald-600 shrink-0" aria-hidden="true" />
           <h2 className="text-sm font-semibold text-slate-900">
             Character Limit Checker
           </h2>
           {activePresetName && (
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 truncate max-w-[150px]">
               {activePresetName}
             </span>
           )}
         </div>
 
         {/* Custom Input */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 self-start sm:self-auto">
           <label htmlFor="custom-limit-input" className="text-xs text-slate-500 font-medium">
             Limit:
           </label>
@@ -68,18 +68,18 @@ export function CharacterLimitControl({
                 const val = e.target.value.trim();
                 onSetLimit(val ? Math.max(1, parseInt(val, 10)) : null);
               }}
-              className="h-8 w-24 rounded-lg border border-slate-200 px-2.5 font-mono text-sm text-slate-800 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              className="h-9 w-28 rounded-lg border border-slate-200 px-3 font-mono text-sm text-slate-800 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
               aria-label="Set custom character limit"
             />
             {hasLimit && (
               <button
                 type="button"
                 onClick={() => onSetLimit(null)}
-                className="absolute right-1.5 text-slate-400 hover:text-slate-600"
+                className="absolute right-2 text-slate-400 hover:text-slate-600 p-0.5"
                 title="Remove character limit"
                 aria-label="Remove character limit"
               >
-                <X className="h-3.5 w-3.5" />
+                <X className="h-4 w-4" />
               </button>
             )}
           </div>
@@ -88,8 +88,8 @@ export function CharacterLimitControl({
 
       {/* Progress & Remaining Indicator */}
       {hasLimit ? (
-        <div className="space-y-2 pt-1">
-          <div className="flex items-center justify-between text-xs">
+        <div className="space-y-2 pt-0.5">
+          <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 text-xs">
             <div className="flex items-center gap-1.5 font-mono font-medium text-slate-700">
               <span>{currentCount.toLocaleString()}</span>
               <span className="text-slate-400">/</span>
@@ -98,22 +98,22 @@ export function CharacterLimitControl({
             </div>
 
             <div
-              className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 font-medium ${badgeColor}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-medium text-xs self-start xs:self-auto ${badgeColor}`}
               aria-live="polite"
             >
               {isOver ? (
                 <>
-                  <AlertTriangle className="h-3.5 w-3.5" />
+                  <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
                   <span>{Math.abs(remaining!).toLocaleString()} characters over limit</span>
                 </>
               ) : isNear ? (
                 <>
-                  <AlertTriangle className="h-3.5 w-3.5" />
+                  <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
                   <span>{remaining!.toLocaleString()} characters remaining</span>
                 </>
               ) : (
                 <>
-                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
                   <span>{remaining!.toLocaleString()} characters remaining</span>
                 </>
               )}
@@ -122,7 +122,7 @@ export function CharacterLimitControl({
 
           {/* Visual Progress Bar */}
           <div
-            className="h-2 w-full overflow-hidden rounded-full bg-slate-100"
+            className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100"
             role="progressbar"
             aria-valuenow={currentCount}
             aria-valuemin={0}
@@ -141,9 +141,9 @@ export function CharacterLimitControl({
         </p>
       )}
 
-      {/* Preset Buttons */}
+      {/* Preset Buttons with friendly touch targets */}
       <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-slate-100">
-        <span className="text-xs font-medium text-slate-400 mr-1">Presets:</span>
+        <span className="text-xs font-medium text-slate-400 mr-1 hidden xs:inline">Presets:</span>
         {COMMON_NUMERIC_PRESETS.map((p) => {
           const isSelected = limit === p;
           return (
@@ -151,10 +151,10 @@ export function CharacterLimitControl({
               key={p}
               type="button"
               onClick={() => onSetLimit(p)}
-              className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+              className={`inline-flex min-h-[34px] items-center justify-center rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
                 isSelected
-                  ? 'bg-emerald-600 text-white font-semibold shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                  ? 'bg-emerald-600 text-white shadow-xs ring-1 ring-emerald-700'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 active:bg-slate-300'
               }`}
             >
               {p.toLocaleString()}
@@ -165,7 +165,7 @@ export function CharacterLimitControl({
           <button
             type="button"
             onClick={() => onSetLimit(null)}
-            className="rounded-md border border-slate-200 px-2 py-1 text-xs font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-colors"
+            className="inline-flex min-h-[34px] items-center justify-center rounded-lg border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors"
           >
             Clear
           </button>

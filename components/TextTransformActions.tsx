@@ -11,7 +11,6 @@ import {
   Scissors,
   AlignLeft,
   Minimize2,
-  Type,
   Check,
 } from 'lucide-react';
 
@@ -55,80 +54,96 @@ export function TextTransformActions({
   hasText,
 }: TextTransformActionsProps) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/90 bg-slate-50/80 px-3 py-2 text-xs">
-      {/* Left group: Clipboard & History */}
-      <div className="flex flex-wrap items-center gap-1">
+    <div className="flex flex-col gap-2 border-b border-slate-200/90 bg-slate-50/90 p-2.5 sm:px-3.5 sm:py-2 text-xs">
+      {/* Primary Row: Clipboard & History */}
+      <div className="flex flex-wrap items-center justify-between gap-1.5">
+        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+          <button
+            type="button"
+            onClick={onCopy}
+            disabled={!hasText}
+            className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+            title="Copy text to clipboard"
+            aria-label="Copy text to clipboard"
+          >
+            <Copy className="h-3.5 w-3.5 text-slate-500" />
+            <span>Copy</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onPaste}
+            className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 transition-colors"
+            title="Paste text from clipboard"
+            aria-label="Paste text from clipboard"
+          >
+            <ClipboardPaste className="h-3.5 w-3.5 text-slate-500" />
+            <span>Paste</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onSelectAll}
+            disabled={!hasText}
+            className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+            title="Select all text"
+            aria-label="Select all text"
+          >
+            <Check className="h-3.5 w-3.5 text-slate-500" />
+            <span className="hidden xs:inline">Select All</span>
+            <span className="xs:hidden">All</span>
+          </button>
+
+          <div className="h-4 w-[1px] bg-slate-300 mx-0.5 hidden sm:block" />
+
+          <button
+            type="button"
+            onClick={onUndo}
+            disabled={!canUndo}
+            className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1 rounded-lg border border-slate-200 bg-white px-2 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+            title="Undo transformation"
+            aria-label="Undo"
+          >
+            <Undo2 className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Undo</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onRedo}
+            disabled={!canRedo}
+            className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1 rounded-lg border border-slate-200 bg-white px-2 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+            title="Redo transformation"
+            aria-label="Redo"
+          >
+            <Redo2 className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Redo</span>
+          </button>
+        </div>
+
+        {/* Clear Button (Always accessible) */}
         <button
           type="button"
-          onClick={onCopy}
+          onClick={onClear}
           disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Copy text to clipboard"
-          aria-label="Copy text to clipboard"
+          className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-rose-200 bg-white px-2.5 py-1.5 font-medium text-rose-600 shadow-2xs hover:bg-rose-50 hover:text-rose-700 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+          title="Clear all text"
+          aria-label="Clear all text"
         >
-          <Copy className="h-3.5 w-3.5" />
-          <span>Copy</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={onPaste}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 transition-colors"
-          title="Paste text from clipboard"
-          aria-label="Paste text from clipboard"
-        >
-          <ClipboardPaste className="h-3.5 w-3.5" />
-          <span>Paste</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={onSelectAll}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Select all text"
-          aria-label="Select all text"
-        >
-          <Check className="h-3.5 w-3.5" />
-          <span>Select All</span>
-        </button>
-
-        <div className="h-4 w-[1px] bg-slate-300 mx-1 hidden sm:block" />
-
-        <button
-          type="button"
-          onClick={onUndo}
-          disabled={!canUndo}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Undo transformation"
-          aria-label="Undo"
-        >
-          <Undo2 className="h-3.5 w-3.5" />
-          <span>Undo</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={onRedo}
-          disabled={!canRedo}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Redo transformation"
-          aria-label="Redo"
-        >
-          <Redo2 className="h-3.5 w-3.5" />
-          <span>Redo</span>
+          <Trash2 className="h-3.5 w-3.5" />
+          <span>Clear</span>
         </button>
       </div>
 
-      {/* Right group: Text Transformations */}
-      <div className="flex flex-wrap items-center gap-1">
-        {/* Case conversions dropdown or inline buttons */}
-        <div className="inline-flex items-center rounded-md bg-slate-200/70 p-0.5">
+      {/* Secondary Row: Text Transformations & Cleaners */}
+      <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1 border-t border-slate-200/60">
+        {/* Case conversions segment */}
+        <div className="inline-flex items-center rounded-lg bg-slate-200/80 p-0.5 shadow-inner">
           <button
             type="button"
             onClick={onSentenceCase}
             disabled={!hasText}
-            className="rounded px-1.5 py-0.5 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
+            className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="Sentence case"
             aria-label="Convert to Sentence case"
           >
@@ -138,7 +153,7 @@ export function TextTransformActions({
             type="button"
             onClick={onTitleCase}
             disabled={!hasText}
-            className="rounded px-1.5 py-0.5 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
+            className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="Title Case"
             aria-label="Convert to Title Case"
           >
@@ -148,7 +163,7 @@ export function TextTransformActions({
             type="button"
             onClick={onUppercase}
             disabled={!hasText}
-            className="rounded px-1.5 py-0.5 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
+            className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="UPPERCASE"
             aria-label="Convert to UPPERCASE"
           >
@@ -158,7 +173,7 @@ export function TextTransformActions({
             type="button"
             onClick={onLowercase}
             disabled={!hasText}
-            className="rounded px-1.5 py-0.5 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
+            className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="lowercase"
             aria-label="Convert to lowercase"
           >
@@ -166,68 +181,58 @@ export function TextTransformActions({
           </button>
         </div>
 
-        {/* Space cleaners */}
-        <button
-          type="button"
-          onClick={onTrim}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Trim leading and trailing whitespace"
-          aria-label="Trim whitespace"
-        >
-          <Scissors className="h-3.5 w-3.5" />
-          <span className="hidden md:inline">Trim</span>
-        </button>
+        {/* Space cleaners & file actions */}
+        <div className="flex flex-wrap items-center gap-1">
+          <button
+            type="button"
+            onClick={onTrim}
+            disabled={!hasText}
+            className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
+            title="Trim leading and trailing whitespace"
+            aria-label="Trim whitespace"
+          >
+            <Scissors className="h-3.5 w-3.5" />
+            <span>Trim</span>
+          </button>
 
-        <button
-          type="button"
-          onClick={onRemoveExtraSpaces}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Remove extra spaces"
-          aria-label="Remove extra spaces"
-        >
-          <Minimize2 className="h-3.5 w-3.5" />
-          <span className="hidden md:inline">Clean Spaces</span>
-        </button>
+          <button
+            type="button"
+            onClick={onRemoveExtraSpaces}
+            disabled={!hasText}
+            className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
+            title="Remove extra spaces"
+            aria-label="Remove extra spaces"
+          >
+            <Minimize2 className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Clean Spaces</span>
+            <span className="sm:hidden">Spaces</span>
+          </button>
 
-        <button
-          type="button"
-          onClick={onRemoveLineBreaks}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Remove all line breaks"
-          aria-label="Remove line breaks"
-        >
-          <AlignLeft className="h-3.5 w-3.5" />
-          <span className="hidden md:inline">Unbreak</span>
-        </button>
+          <button
+            type="button"
+            onClick={onRemoveLineBreaks}
+            disabled={!hasText}
+            className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
+            title="Remove all line breaks"
+            aria-label="Remove line breaks"
+          >
+            <AlignLeft className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Unbreak</span>
+            <span className="sm:hidden">Unwrap</span>
+          </button>
 
-        {/* Download TXT */}
-        <button
-          type="button"
-          onClick={onDownload}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-          title="Download text as .txt file"
-          aria-label="Download TXT"
-        >
-          <Download className="h-3.5 w-3.5" />
-          <span className="hidden lg:inline">.TXT</span>
-        </button>
-
-        {/* Clear Button */}
-        <button
-          type="button"
-          onClick={onClear}
-          disabled={!hasText}
-          className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-rose-600 hover:bg-rose-50 hover:text-rose-700 disabled:opacity-40 disabled:hover:bg-transparent transition-colors ml-1"
-          title="Clear all text"
-          aria-label="Clear all text"
-        >
-          <Trash2 className="h-3.5 w-3.5" />
-          <span>Clear</span>
-        </button>
+          <button
+            type="button"
+            onClick={onDownload}
+            disabled={!hasText}
+            className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
+            title="Download text as .txt file"
+            aria-label="Download TXT"
+          >
+            <Download className="h-3.5 w-3.5" />
+            <span>.TXT</span>
+          </button>
+        </div>
       </div>
     </div>
   );

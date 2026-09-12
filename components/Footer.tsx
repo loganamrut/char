@@ -38,7 +38,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               {SITE_CONFIG.footerLinks.tools.map((tool) => (
                 <li key={tool.label}>
-                  <Link href={tool.href} className="hover:text-emerald-600 transition-colors">
+                  <Link href={tool.href} className="hover:text-emerald-600 transition-colors py-1 inline-block">
                     {tool.label}
                   </Link>
                 </li>
@@ -51,10 +51,10 @@ export function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-900">
               Information & Legal
             </h3>
-            <ul className="mt-3 space-y-2 text-sm">
+            <ul className="mt-3 space-y-1 text-sm">
               {SITE_CONFIG.footerLinks.legal.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="hover:text-emerald-600 transition-colors">
+                  <Link href={item.href} className="hover:text-emerald-600 transition-colors py-1 inline-block">
                     {item.label}
                   </Link>
                 </li>
