@@ -1,27 +1,49 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShieldCheck, Cpu, ArrowLeft, CheckCircle2, Lock, Zap } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants/site-config';
+import { ArrowLeft, Lock, Cpu, Zap } from 'lucide-react';
+import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'About CharCount.dev - Methodology & Privacy Architecture',
+  title: {
+    absolute: 'About CharCount.dev - Privacy & Methodology',
+  },
   description: 'Learn how CharCount.dev calculates Unicode-accurate character counts, spaces, and words client-side with complete privacy.',
   alternates: {
-    canonical: '/about',
+    canonical: '/about/',
+  },
+  openGraph: {
+    title: 'About CharCount.dev - Privacy & Methodology',
+    description: 'Learn how CharCount.dev calculates Unicode-accurate character counts, spaces, and words client-side with complete privacy.',
+    url: 'https://charcount.dev/about/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About CharCount.dev - Privacy & Methodology',
+    description: 'Learn how CharCount.dev calculates Unicode-accurate character counts, spaces, and words client-side with complete privacy.',
   },
 };
 
 export default function AboutPage() {
+  const breadcrumbsJsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about/' },
+  ]);
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+
       <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors mb-4"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
-        </Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+          <Link href="/" className="inline-flex items-center gap-1 hover:underline">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
+          </Link>
+        </nav>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           About CharCount.dev
         </h1>

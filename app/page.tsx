@@ -3,17 +3,24 @@ import { CharacterCounter } from '@/components/CharacterCounter';
 import { SeoContent } from '@/components/SeoContent';
 import { FaqSection } from '@/components/FaqSection';
 import { RelatedTools } from '@/components/RelatedTools';
-import { getFaqSchema } from '@/lib/seo/json-ld';
+import { getFaqSchema, getBreadcrumbSchema } from '@/lib/seo/json-ld';
 
 export default function HomePage() {
   const faqJsonLd = getFaqSchema();
+  const breadcrumbJsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+  ]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
-      {/* FAQ Schema */}
+      {/* Schemas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* 1. Above The Fold: Hero & Main Tool */}

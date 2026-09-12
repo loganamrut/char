@@ -3,26 +3,83 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CharacterCounter } from '@/components/CharacterCounter';
 import { RelatedTools } from '@/components/RelatedTools';
+import { getBreadcrumbSchema, getWebApplicationSchema, getFaqSchema } from '@/lib/seo/json-ld';
+import { Layers, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Character Counter Without Spaces - Free Online Tool',
-  description: 'Count characters excluding spaces, tabs, and line breaks. Perfect for academic papers, book manuscripts, and translation invoicing. Fast and 100% private.',
+  title: {
+    absolute: 'Character Counter Without Spaces - Free Online Tool',
+  },
+  description: 'Count characters excluding spaces, tabs, and line breaks online. Perfect for translation quotes, academic submissions, and publishers. 100% private and free.',
   alternates: {
-    canonical: '/character-counter-without-spaces',
+    canonical: '/character-counter-without-spaces/',
+  },
+  openGraph: {
+    title: 'Character Counter Without Spaces - Free Online Tool',
+    description: 'Count characters excluding spaces, tabs, and line breaks online. Perfect for translation quotes, academic submissions, and publishers. 100% private and free.',
+    url: 'https://charcount.dev/character-counter-without-spaces/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Character Counter Without Spaces - Free Online Tool',
+    description: 'Count characters excluding spaces, tabs, and line breaks online. Perfect for translation quotes, academic submissions, and publishers. 100% private and free.',
   },
 };
 
+const WITHOUT_SPACES_FAQS = [
+  {
+    question: 'What does "characters without spaces" mean?',
+    answer: '"Characters without spaces" (also called characters excluding spaces or raw letter count) calculates the total number of characters in a text after stripping out all spaces, tabs, and newlines. Only letters, numbers, punctuation marks, and symbols are counted.'
+  },
+  {
+    question: 'Why do translators charge by characters without spaces?',
+    answer: 'In many European and Asian markets (notably Germany, Italy, Poland, and Japan), professional translators invoice by the standard page (Normseite), defined as 1,500 characters excluding spaces (or 1,800 characters including spaces). This provides a reliable measure of actual textual content independent of formatting quirks.'
+  },
+  {
+    question: 'Why do academic journals require character counts excluding spaces?',
+    answer: 'Academic committees and scientific journals often set limits excluding spaces to ensure fairness across submissions. Counting without spaces prevents authors from manipulating character counts through spacing adjustments or paragraph styling.'
+  }
+];
+
 export default function WithoutSpacesPage() {
+  const breadcrumbsJsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Character Counter Without Spaces', url: '/character-counter-without-spaces/' },
+  ]);
+
+  const webAppJsonLd = getWebApplicationSchema({
+    name: 'Character Counter Without Spaces - Online Counting Utility',
+    url: 'https://charcount.dev/character-counter-without-spaces/',
+    description: 'Free online character counter without spaces. Calculate characters excluding all whitespace, tabs, and newlines client-side.',
+  });
+
+  const faqJsonLd = getFaqSchema(WITHOUT_SPACES_FAQS);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 space-y-12">
-      {/* Hero & Counter */}
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
+      {/* Hero & Counter (Above The Fold) */}
       <section className="space-y-4">
         <div className="space-y-1.5">
-          <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
-            <Link href="/" className="hover:underline">Character Counter</Link>
-            <span>/</span>
-            <span className="text-slate-500">Without Spaces</span>
-          </div>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+            <Link href="/" className="hover:underline">Home</Link>
+            <span className="text-slate-400">/</span>
+            <span className="text-slate-600">Without Spaces</span>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Character Counter Without Spaces
           </h1>
@@ -31,46 +88,73 @@ export default function WithoutSpacesPage() {
           </p>
         </div>
 
+        {/* Live Interactive Counter */}
         <CharacterCounter />
       </section>
 
-      {/* Editorial Content */}
-      <section className="space-y-6 text-slate-700 leading-relaxed border-t border-slate-200 pt-8">
-        <h2 className="text-2xl font-bold text-slate-900">
-          When to Count Characters Without Spaces
-        </h2>
-        <p className="text-sm sm:text-base text-slate-600">
-          Excluding whitespace isolates the actual informational content of a text. This metric is the industry standard in:
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-2">
-            <h3 className="text-base font-bold text-slate-900">Translation &amp; Localization</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Professional translation agencies in Europe and Asia typically bill by the standard page or per 1,000 characters without spaces (known as &ldquo;Normseiten&rdquo; in Germany, defined as 1,500 characters excluding spaces).
-            </p>
+      {/* In-Depth SEO Content */}
+      <section className="space-y-10 text-slate-700 leading-relaxed border-t border-slate-200 pt-8">
+        <div className="space-y-3">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            When to Count Characters Without Spaces
+          </h2>
+          <p className="text-base text-slate-600">
+            Excluding whitespace isolates the actual semantic and informational substance of your text. It is the gold-standard metric for:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-2xs space-y-2">
+              <h3 className="text-base font-bold text-slate-900">Professional Translation Billing</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Translation agencies across Germany, Switzerland, Austria, and Poland use the &ldquo;Normseite&rdquo; (standard page) standard, legally defined as 1,500 characters without spaces (or 55 keystrokes × 30 lines).
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-2xs space-y-2">
+              <h3 className="text-base font-bold text-slate-900">University Grant Proposals &amp; Theses</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Peer-reviewed medical, scientific, and academic journals often prescribe strict limits excluding spaces so that authors are evaluated on content rather than indentation or formatting choices.
+              </p>
+            </div>
           </div>
-
-          <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-2">
-            <h3 className="text-base font-bold text-slate-900">Academic Theses &amp; Grants</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Academic journals and grant evaluators often stipulate limits without spaces to prevent researchers from artificially manipulating character counts via paragraph formatting or double spacing.
-            </p>
-          </div>
+          <p className="text-sm text-slate-600 pt-2">
+            If you need to verify social media limits or include spaces, use our{' '}
+            <Link href="/character-counter-with-spaces/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+              character counter with spaces
+            </Link>{' '}
+            or visit the primary{' '}
+            <Link href="/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+              online character counter
+            </Link>.
+          </p>
         </div>
 
-        <p className="text-sm text-slate-600">
-          If you need to include spaces or verify social platform limits, visit our primary{' '}
-          <Link href="/" className="font-semibold text-emerald-600 underline">
-            character counter
-          </Link>{' '}
-          or explore the{' '}
-          <Link href="/character-counter-with-spaces" className="font-semibold text-emerald-600 underline">
-            character counter with spaces
-          </Link>.
-        </p>
+        {/* Comparison Box */}
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 space-y-3">
+          <h3 className="text-base font-bold text-slate-900">
+            How Much Difference Do Spaces Make?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            In typical English writing, whitespace accounts for approximately <strong>15% to 20%</strong> of the total character count. For example, a 1,000-word article typically contains approximately 5,000 characters without spaces and roughly 6,000 characters with spaces.
+          </p>
+        </div>
+
+        {/* FAQs */}
+        <div className="space-y-4 pt-4 border-t border-slate-200">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+            <HelpCircle className="h-6 w-6 text-emerald-600" />
+            Characters Without Spaces FAQs
+          </h2>
+          <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-xs">
+            {WITHOUT_SPACES_FAQS.map((faq) => (
+              <div key={faq.question} className="p-4 sm:p-5 space-y-1.5">
+                <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
+      {/* Related Tools Silo */}
       <RelatedTools />
     </div>
   );

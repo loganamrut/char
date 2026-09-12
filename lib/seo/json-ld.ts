@@ -1,15 +1,21 @@
 import { SITE_CONFIG } from '../constants/site-config';
-import { FAQS } from '../constants/faqs';
+import { FAQS, FAQItem } from '../constants/faqs';
 
-export function getWebApplicationSchema() {
+export function getWebApplicationSchema(customTool?: {
+  name: string;
+  url: string;
+  description: string;
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    '@id': `${SITE_CONFIG.domain}/#webapp`,
-    name: 'CharCount - Online Character Counter',
-    alternateName: ['CharCount.dev', 'Character Counter Online'],
-    url: SITE_CONFIG.domain,
-    description: SITE_CONFIG.description,
+    '@id': `${customTool ? customTool.url : SITE_CONFIG.domain}/#webapp`,
+    name: customTool ? customTool.name : 'CharCount - Online Character Counter',
+    alternateName: customTool
+      ? [customTool.name, 'CharCount.dev']
+      : ['CharCount.dev', 'Character Counter Online', 'Free Character Counter'],
+    url: customTool ? customTool.url : SITE_CONFIG.domain,
+    description: customTool ? customTool.description : SITE_CONFIG.description,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript. Works in all modern browsers.',
@@ -47,11 +53,12 @@ export function getWebSiteSchema() {
   };
 }
 
-export function getFaqSchema() {
+export function getFaqSchema(customFaqs?: FAQItem[]) {
+  const list = customFaqs || FAQS;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQS.map(faq => ({
+    mainEntity: list.map(faq => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -66,11 +73,16 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: item.url
-    }))
+    itemListElement: items.map((item, index) => {
+      const fullUrl = item.url.startsWith('http')
+        ? item.url
+        : `${SITE_CONFIG.domain}${item.url.startsWith('/') ? '' : '/'}${item.url}`;
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: fullUrl
+      };
+    })
   };
 }

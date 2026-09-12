@@ -1,28 +1,51 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShieldCheck, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, ArrowLeft } from 'lucide-react';
+import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Client-Side Processing Guarantee',
+  title: {
+    absolute: 'Privacy Policy - Client-Side Processing Guarantee',
+  },
   description: 'Our privacy policy explains our 100% browser-based text processing architecture. Your text is never uploaded, stored, or analyzed on our servers.',
   alternates: {
-    canonical: '/privacy',
+    canonical: '/privacy/',
+  },
+  openGraph: {
+    title: 'Privacy Policy - Client-Side Processing Guarantee',
+    description: 'Our privacy policy explains our 100% browser-based text processing architecture. Your text is never uploaded, stored, or analyzed on our servers.',
+    url: 'https://charcount.dev/privacy/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy - Client-Side Processing Guarantee',
+    description: 'Our privacy policy explains our 100% browser-based text processing architecture. Your text is never uploaded, stored, or analyzed on our servers.',
   },
 };
 
 export default function PrivacyPage() {
   const lastUpdated = 'September 2026';
 
+  const breadcrumbsJsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Privacy Policy', url: '/privacy/' },
+  ]);
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+
       <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors mb-4"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
-        </Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+          <Link href="/" className="inline-flex items-center gap-1 hover:underline">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
+          </Link>
+        </nav>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           Privacy Policy
         </h1>

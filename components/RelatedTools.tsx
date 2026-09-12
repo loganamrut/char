@@ -5,31 +5,31 @@ import { ArrowRight, Type, FileText, AlignLeft, Hash, Layers } from 'lucide-reac
 const TOOLS = [
   {
     title: 'Word Counter',
-    href: '/word-counter',
+    href: '/word-counter/',
     description: 'Track word count, reading level, keyword density, and sentence complexity for essays and articles.',
     icon: FileText,
   },
   {
     title: 'Letter Counter',
-    href: '/letter-counter',
+    href: '/letter-counter/',
     description: 'Filter out spaces, numbers, and symbols to count pure alphabetic letters across languages.',
     icon: Type,
   },
   {
     title: 'Sentence Counter',
-    href: '/sentence-counter',
+    href: '/sentence-counter/',
     description: 'Analyze sentence structure, count sentence lengths, and check readability metrics.',
     icon: AlignLeft,
   },
   {
     title: 'With Spaces Counter',
-    href: '/character-counter-with-spaces',
+    href: '/character-counter-with-spaces/',
     description: 'Calculate exact character counts including spaces for SMS, social posts, and hard character caps.',
     icon: Hash,
   },
   {
     title: 'Without Spaces Counter',
-    href: '/character-counter-without-spaces',
+    href: '/character-counter-without-spaces/',
     description: 'Calculate character counts excluding whitespace for academic papers, publishing, and translation quotes.',
     icon: Layers,
   },
@@ -40,7 +40,7 @@ export function RelatedTools() {
     <section className="space-y-4 pt-4" aria-labelledby="related-tools-heading">
       <div className="border-b border-slate-200 pb-3">
         <h2 id="related-tools-heading" className="text-xl font-bold text-slate-900">
-          Related Writing & Text Analysis Tools
+          Related Writing &amp; Text Analysis Tools
         </h2>
         <p className="text-xs text-slate-500 mt-0.5">
           Dedicated text utilities built with the same 100% private, client-side architecture.

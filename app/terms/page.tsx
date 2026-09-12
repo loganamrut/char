@@ -2,27 +2,50 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { getBreadcrumbSchema } from '@/lib/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - CharCount.dev',
+  title: {
+    absolute: 'Terms of Service - CharCount.dev',
+  },
   description: 'Terms and conditions governing the use of the CharCount.dev website and client-side text tools.',
   alternates: {
-    canonical: '/terms',
+    canonical: '/terms/',
+  },
+  openGraph: {
+    title: 'Terms of Service - CharCount.dev',
+    description: 'Terms and conditions governing the use of the CharCount.dev website and client-side text tools.',
+    url: 'https://charcount.dev/terms/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service - CharCount.dev',
+    description: 'Terms and conditions governing the use of the CharCount.dev website and client-side text tools.',
   },
 };
 
 export default function TermsPage() {
   const lastUpdated = 'September 2026';
 
+  const breadcrumbsJsonLd = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Terms of Service', url: '/terms/' },
+  ]);
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+      />
+
       <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors mb-4"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
-        </Link>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+          <Link href="/" className="inline-flex items-center gap-1 hover:underline">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
+          </Link>
+        </nav>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           Terms of Service
         </h1>
