@@ -38,7 +38,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               {SITE_CONFIG.footerLinks.tools.map((tool) => (
                 <li key={tool.label}>
-                  <Link href={tool.href} className="hover:text-emerald-600 transition-colors py-1 inline-block">
+                  <Link href={tool.href} className="hover:text-emerald-700 transition-colors py-1 inline-block">
                     {tool.label}
                   </Link>
                 </li>
@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="mt-3 space-y-1 text-sm">
               {SITE_CONFIG.footerLinks.legal.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="hover:text-emerald-600 transition-colors py-1 inline-block">
+                  <Link href={item.href} className="hover:text-emerald-700 transition-colors py-1 inline-block">
                     {item.label}
                   </Link>
                 </li>
@@ -63,7 +63,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="mt-10 border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-4">
           <p>© {currentYear} CharCount.dev. All rights reserved.</p>
           <p className="text-center sm:text-right">
             Zero trackers • Zero external font requests • Zero third-party ads in editor

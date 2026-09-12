@@ -64,9 +64,8 @@ export function TextTransformActions({
             disabled={!hasText}
             className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
             title="Copy text to clipboard"
-            aria-label="Copy text to clipboard"
           >
-            <Copy className="h-3.5 w-3.5 text-slate-500" />
+            <Copy className="h-3.5 w-3.5 text-slate-600" />
             <span>Copy</span>
           </button>
 
@@ -75,9 +74,8 @@ export function TextTransformActions({
             onClick={onPaste}
             className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 transition-colors"
             title="Paste text from clipboard"
-            aria-label="Paste text from clipboard"
           >
-            <ClipboardPaste className="h-3.5 w-3.5 text-slate-500" />
+            <ClipboardPaste className="h-3.5 w-3.5 text-slate-600" />
             <span>Paste</span>
           </button>
 
@@ -87,9 +85,8 @@ export function TextTransformActions({
             disabled={!hasText}
             className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-medium text-slate-700 shadow-2xs hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white transition-colors"
             title="Select all text"
-            aria-label="Select all text"
           >
-            <Check className="h-3.5 w-3.5 text-slate-500" />
+            <Check className="h-3.5 w-3.5 text-slate-600" />
             <span className="hidden xs:inline">Select All</span>
             <span className="xs:hidden">All</span>
           </button>
@@ -126,9 +123,8 @@ export function TextTransformActions({
           type="button"
           onClick={onClear}
           disabled={!hasText}
-          className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-rose-200 bg-white px-2.5 py-1.5 font-medium text-rose-600 shadow-2xs hover:bg-rose-50 hover:text-rose-700 disabled:opacity-40 disabled:hover:bg-white transition-colors"
+          className="inline-flex min-h-[36px] sm:min-h-[32px] items-center gap-1.5 rounded-lg border border-rose-300 bg-white px-2.5 py-1.5 font-medium text-rose-700 shadow-2xs hover:bg-rose-50 hover:text-rose-800 disabled:opacity-40 disabled:hover:bg-white transition-colors"
           title="Clear all text"
-          aria-label="Clear all text"
         >
           <Trash2 className="h-3.5 w-3.5" />
           <span>Clear</span>
@@ -144,8 +140,7 @@ export function TextTransformActions({
             onClick={onSentenceCase}
             disabled={!hasText}
             className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
-            title="Sentence case"
-            aria-label="Convert to Sentence case"
+            title="Convert to Sentence case"
           >
             Aa
           </button>
@@ -154,8 +149,7 @@ export function TextTransformActions({
             onClick={onTitleCase}
             disabled={!hasText}
             className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
-            title="Title Case"
-            aria-label="Convert to Title Case"
+            title="Convert to Title Case"
           >
             Title
           </button>
@@ -164,8 +158,7 @@ export function TextTransformActions({
             onClick={onUppercase}
             disabled={!hasText}
             className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
-            title="UPPERCASE"
-            aria-label="Convert to UPPERCASE"
+            title="Convert to UPPERCASE"
           >
             UPPER
           </button>
@@ -174,8 +167,7 @@ export function TextTransformActions({
             onClick={onLowercase}
             disabled={!hasText}
             className="min-h-[30px] rounded-md px-2 py-1 font-medium text-slate-700 hover:bg-white hover:text-slate-900 disabled:opacity-40 transition-colors"
-            title="lowercase"
-            aria-label="Convert to lowercase"
+            title="Convert to lowercase"
           >
             lower
           </button>
@@ -189,7 +181,6 @@ export function TextTransformActions({
             disabled={!hasText}
             className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="Trim leading and trailing whitespace"
-            aria-label="Trim whitespace"
           >
             <Scissors className="h-3.5 w-3.5" />
             <span>Trim</span>
@@ -200,8 +191,7 @@ export function TextTransformActions({
             onClick={onRemoveExtraSpaces}
             disabled={!hasText}
             className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
-            title="Remove extra spaces"
-            aria-label="Remove extra spaces"
+            title="Remove extra spaces between words"
           >
             <Minimize2 className="h-3.5 w-3.5" />
             <span className="hidden sm:inline">Clean Spaces</span>
@@ -214,11 +204,10 @@ export function TextTransformActions({
             disabled={!hasText}
             className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="Remove all line breaks"
-            aria-label="Remove line breaks"
           >
             <AlignLeft className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Unbreak</span>
-            <span className="sm:hidden">Unwrap</span>
+            <span className="hidden sm:inline">Remove Breaks</span>
+            <span className="sm:hidden">Breaks</span>
           </button>
 
           <button
@@ -227,7 +216,6 @@ export function TextTransformActions({
             disabled={!hasText}
             className="inline-flex min-h-[30px] items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 transition-colors"
             title="Download text as .txt file"
-            aria-label="Download TXT"
           >
             <Download className="h-3.5 w-3.5" />
             <span>.TXT</span>

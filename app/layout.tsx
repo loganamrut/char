@@ -1,9 +1,15 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SITE_CONFIG } from '@/lib/constants/site-config';
 import { getWebApplicationSchema, getWebSiteSchema } from '@/lib/seo/json-ld';
+
+export const viewport: Viewport = {
+  themeColor: '#047857',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.domain),

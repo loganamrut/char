@@ -24,10 +24,10 @@ export function PlatformLimitPresets({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Share2 className="h-4 w-4 text-emerald-600 shrink-0" aria-hidden="true" />
+            <Share2 className="h-4 w-4 text-emerald-700 shrink-0" aria-hidden="true" />
             Social Media &amp; SEO Character Limits
           </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-xs text-slate-600 mt-0.5">
             Tap any preset card to load its character limit directly into the live counter.
           </p>
         </div>
@@ -63,53 +63,45 @@ export function PlatformLimitPresets({
         {filteredLimits.map((item) => {
           const isSelected = currentLimit === item.limit;
           return (
-            <div
+            <button
               key={item.id}
+              type="button"
               onClick={() => onSelectPreset(item.limit, item.name)}
-              className={`group flex flex-col justify-between rounded-xl border p-3.5 sm:p-4 cursor-pointer transition-all hover:border-emerald-400 active:scale-[0.99] ${
+              className={`w-full text-left group flex flex-col justify-between rounded-xl border p-3.5 sm:p-4 cursor-pointer transition-all hover:border-emerald-500 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                 isSelected
-                  ? 'border-emerald-500 bg-emerald-50/60 ring-2 ring-emerald-500/20'
+                  ? 'border-emerald-600 bg-emerald-50/60 ring-2 ring-emerald-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xs'
               }`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onSelectPreset(item.limit, item.name);
-                }
-              }}
-              aria-label={`Load ${item.name} limit of ${item.limit} characters`}
             >
               <div>
                 <div className="flex items-center justify-between gap-1.5">
-                  <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
                     {item.name}
                   </span>
-                  <span className="inline-flex items-center gap-0.5 rounded-md bg-white px-2 py-0.5 font-mono text-xs font-bold text-emerald-700 border border-slate-200 shadow-2xs">
-                    {isSelected ? <Check className="h-3 w-3 text-emerald-600" /> : null}
+                  <span className="inline-flex items-center gap-0.5 rounded-md bg-white px-2 py-0.5 font-mono text-xs font-bold text-emerald-800 border border-slate-200 shadow-2xs">
+                    {isSelected ? <Check className="h-3 w-3 text-emerald-700" /> : null}
                     {item.limit.toLocaleString()}
                   </span>
                 </div>
 
-                <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">
+                <p className="mt-1.5 text-xs text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
 
                 {item.details && (
-                  <p className="mt-1 text-[11px] text-slate-400 italic leading-snug">
+                  <p className="mt-1 text-[11px] text-slate-600 italic leading-snug">
                     {item.details}
                   </p>
                 )}
               </div>
 
               <div className="mt-3 flex items-center justify-between pt-2.5 border-t border-slate-200/60 text-[11px]">
-                <span className="text-slate-400 capitalize font-medium">{item.category}</span>
-                <span className="inline-flex items-center gap-0.5 font-semibold text-emerald-600 group-hover:translate-x-0.5 transition-transform">
+                <span className="text-slate-600 capitalize font-medium">{item.category}</span>
+                <span className="inline-flex items-center gap-0.5 font-semibold text-emerald-700 group-hover:translate-x-0.5 transition-transform">
                   {isSelected ? 'Active limit' : 'Use limit'} <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </div>
-            </div>
+            </button>
           );
         })}
       </div>

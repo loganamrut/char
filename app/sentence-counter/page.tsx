@@ -75,10 +75,10 @@ export default function SentenceCounterPage() {
       {/* Hero & Counter (Above The Fold) */}
       <section className="space-y-4">
         <div className="space-y-1.5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
             <Link href="/" className="hover:underline">Home</Link>
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-600">Sentence Counter</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-700 font-medium">Sentence Counter</span>
           </nav>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Sentence Counter
@@ -103,11 +103,11 @@ export default function SentenceCounterPage() {
           </p>
           <p className="text-sm text-slate-600">
             Need to measure characters or words as well? Return to our primary{' '}
-            <Link href="/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               free character counter
             </Link>{' '}
             or visit the{' '}
-            <Link href="/word-counter/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/word-counter/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               word counter online
             </Link>.
           </p>
@@ -124,24 +124,24 @@ export default function SentenceCounterPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
-              <div className="text-xs font-bold text-emerald-600 uppercase">1 to 10 Words</div>
+              <div className="text-xs font-bold text-emerald-700 uppercase">1 to 10 Words</div>
               <div className="font-bold text-slate-900 mt-1">Punchy &amp; High-Impact</div>
-              <p className="text-xs text-slate-500 mt-1">Best for marketing copy, calls-to-action, and bold introductions.</p>
+              <p className="text-xs text-slate-600 mt-1 font-medium">Best for marketing copy, calls-to-action, and bold introductions.</p>
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
-              <div className="text-xs font-bold text-blue-600 uppercase">11 to 20 Words</div>
+              <div className="text-xs font-bold text-blue-700 uppercase">11 to 20 Words</div>
               <div className="font-bold text-slate-900 mt-1">Optimal Web Standard</div>
-              <p className="text-xs text-slate-500 mt-1">Ideal for blog articles, news stories, and technical guides.</p>
+              <p className="text-xs text-slate-600 mt-1 font-medium">Ideal for blog articles, news stories, and technical guides.</p>
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
-              <div className="text-xs font-bold text-amber-600 uppercase">21 to 28 Words</div>
+              <div className="text-xs font-bold text-amber-700 uppercase">21 to 28 Words</div>
               <div className="font-bold text-slate-900 mt-1">Moderately Complex</div>
-              <p className="text-xs text-slate-500 mt-1">Common in university papers, analysis essays, and literature.</p>
+              <p className="text-xs text-slate-600 mt-1 font-medium">Common in university papers, analysis essays, and literature.</p>
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
-              <div className="text-xs font-bold text-rose-600 uppercase">30+ Words</div>
+              <div className="text-xs font-bold text-rose-700 uppercase">30+ Words</div>
               <div className="font-bold text-slate-900 mt-1">Run-on Risk</div>
-              <p className="text-xs text-slate-500 mt-1">High fatigue risk. Consider splitting into two distinct sentences.</p>
+              <p className="text-xs text-slate-600 mt-1 font-medium">High fatigue risk. Consider splitting into two distinct sentences.</p>
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function SentenceCounterPage() {
         {/* Sentence Counter FAQs */}
         <div className="space-y-4 pt-4 border-t border-slate-200">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <HelpCircle className="h-6 w-6 text-emerald-600" />
+            <HelpCircle className="h-6 w-6 text-emerald-700" />
             Sentence Counter FAQs
           </h2>
           <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-xs">

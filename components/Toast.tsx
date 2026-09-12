@@ -26,7 +26,7 @@ export function Toast({ message, type = 'success', onClose }: ToastProps) {
       <span>{message}</span>
       <button
         onClick={onClose}
-        className="ml-2 rounded p-0.5 text-slate-400 hover:bg-slate-800 hover:text-white"
+        className="ml-2 rounded p-0.5 text-slate-300 hover:bg-slate-800 hover:text-white"
         aria-label="Dismiss notification"
       >
         <X className="h-3.5 w-3.5" />

@@ -23,13 +23,13 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">
-                CharCount<span className="text-emerald-600">.dev</span>
+                CharCount<span className="text-emerald-700">.dev</span>
               </span>
             </div>
           </Link>
 
-          <span className="hidden md:inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 border border-emerald-200/60">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
+          <span className="hidden md:inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-800 border border-emerald-200/60">
+            <ShieldCheck className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
             100% Private (In-Browser)
           </span>
         </div>
@@ -40,7 +40,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-2 py-1.5"
+              className="text-sm font-medium text-slate-700 hover:text-emerald-700 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-500 rounded px-2 py-1.5"
             >
               {link.label}
             </Link>
@@ -74,7 +74,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex min-h-[44px] items-center rounded-md px-3 text-base font-medium text-slate-800 hover:bg-slate-50 hover:text-emerald-600 transition-colors"
+                className="flex min-h-[44px] items-center rounded-md px-3 text-base font-medium text-slate-800 hover:bg-slate-50 hover:text-emerald-700 transition-colors"
               >
                 {link.label}
               </Link>

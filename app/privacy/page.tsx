@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       />
 
       <div>
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 mb-4">
           <Link href="/" className="inline-flex items-center gap-1 hover:underline">
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
           </Link>
@@ -49,13 +49,13 @@ export default function PrivacyPage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           Privacy Policy
         </h1>
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-slate-600 font-medium">
           Last Updated: {lastUpdated}
         </p>
       </div>
 
       <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 flex items-start gap-3">
-        <ShieldCheck className="h-6 w-6 text-emerald-600 shrink-0 mt-0.5" />
+        <ShieldCheck className="h-6 w-6 text-emerald-700 shrink-0 mt-0.5" />
         <div className="space-y-1">
           <h2 className="text-sm font-bold text-slate-900">The CharCount.dev Privacy Commitment</h2>
           <p className="text-xs text-slate-600 leading-relaxed">

@@ -65,7 +65,7 @@ export function StatCards({ stats }: StatCardsProps) {
           }`}
         >
           <div className="flex items-baseline justify-between gap-1">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 truncate">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-600 truncate">
               {item.label}
             </span>
           </div>
@@ -81,7 +81,7 @@ export function StatCards({ stats }: StatCardsProps) {
             </span>
           </div>
 
-          <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
+          <span className="text-[10px] sm:text-[11px] text-slate-600 font-medium truncate">
             {item.sublabel}
           </span>
         </div>

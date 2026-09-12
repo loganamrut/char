@@ -20,17 +20,17 @@ export function DetailedStats({ stats }: DetailedStatsProps) {
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-2">
-          <Layers className="h-4 w-4 text-emerald-600" aria-hidden="true" />
+          <Layers className="h-4 w-4 text-emerald-700" aria-hidden="true" />
           <h2 className="text-sm font-semibold text-slate-900">
             Detailed Text Statistics & Reading Metrics
           </h2>
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+        <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
           <span>{isOpen ? 'Collapse' : 'Expand'}</span>
           {isOpen ? (
-            <ChevronUp className="h-4 w-4 text-slate-400" />
+            <ChevronUp className="h-4 w-4 text-slate-600" />
           ) : (
-            <ChevronDown className="h-4 w-4 text-slate-400" />
+            <ChevronDown className="h-4 w-4 text-slate-600" />
           )}
         </div>
       </button>
@@ -44,11 +44,11 @@ export function DetailedStats({ stats }: DetailedStatsProps) {
                 <BookOpen className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 font-medium">Reading Time</div>
+                <div className="text-xs text-slate-600 font-medium">Reading Time</div>
                 <div className="font-mono text-base font-bold text-slate-800">
                   {formatTime(stats.readingTimeSeconds)}
                 </div>
-                <div className="text-[10px] text-slate-400">@ 225 WPM</div>
+                <div className="text-[11px] text-slate-600 font-medium">@ 225 WPM</div>
               </div>
             </div>
 
@@ -57,11 +57,11 @@ export function DetailedStats({ stats }: DetailedStatsProps) {
                 <Mic className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 font-medium">Speaking Time</div>
+                <div className="text-xs text-slate-600 font-medium">Speaking Time</div>
                 <div className="font-mono text-base font-bold text-slate-800">
                   {formatTime(stats.speakingTimeSeconds)}
                 </div>
-                <div className="text-[10px] text-slate-400">@ 135 WPM</div>
+                <div className="text-[11px] text-slate-600 font-medium">@ 135 WPM</div>
               </div>
             </div>
 
@@ -70,11 +70,11 @@ export function DetailedStats({ stats }: DetailedStatsProps) {
                 <Sparkles className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 font-medium">Avg Word Length</div>
+                <div className="text-xs text-slate-600 font-medium">Avg Word Length</div>
                 <div className="font-mono text-base font-bold text-slate-800">
-                  {stats.avgWordLength} <span className="text-xs font-normal text-slate-500">chars</span>
+                  {stats.avgWordLength} <span className="text-xs font-normal text-slate-600">chars</span>
                 </div>
-                <div className="text-[10px] text-slate-400">Excluding spaces</div>
+                <div className="text-[11px] text-slate-600 font-medium">Excluding spaces</div>
               </div>
             </div>
 
@@ -83,51 +83,51 @@ export function DetailedStats({ stats }: DetailedStatsProps) {
                 <Info className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 font-medium">Avg Sentence</div>
+                <div className="text-xs text-slate-600 font-medium">Avg Sentence</div>
                 <div className="font-mono text-base font-bold text-slate-800">
-                  {stats.avgSentenceLength} <span className="text-xs font-normal text-slate-500">words</span>
+                  {stats.avgSentenceLength} <span className="text-xs font-normal text-slate-600">words</span>
                 </div>
-                <div className="text-[10px] text-slate-400">Words per sentence</div>
+                <div className="text-[11px] text-slate-600 font-medium">Words per sentence</div>
               </div>
             </div>
           </div>
 
           {/* Character Breakdown Grid */}
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2.5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2.5">
               Character Classification Breakdown
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Letters</div>
+                <div className="text-xs text-slate-600 font-medium">Letters</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.letters}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Numbers</div>
+                <div className="text-xs text-slate-600 font-medium">Numbers</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.numbers}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Spaces</div>
+                <div className="text-xs text-slate-600 font-medium">Spaces</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.spaces}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Punctuation</div>
+                <div className="text-xs text-slate-600 font-medium">Punctuation</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.punctuation}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Symbols</div>
+                <div className="text-xs text-slate-600 font-medium">Symbols</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.symbols}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">Emojis</div>
+                <div className="text-xs text-slate-600 font-medium">Emojis</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.emojis}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">UTF-16 Units</div>
+                <div className="text-xs text-slate-600 font-medium">UTF-16 Units</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.codeUnits}</div>
               </div>
               <div className="rounded-lg border border-slate-100 bg-slate-50/40 p-2.5 text-center">
-                <div className="text-xs text-slate-500">UTF-8 Bytes</div>
+                <div className="text-xs text-slate-600 font-medium">UTF-8 Bytes</div>
                 <div className="font-mono text-lg font-bold text-slate-800">{stats.byteSize}</div>
               </div>
             </div>

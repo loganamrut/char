@@ -75,10 +75,10 @@ export default function WithSpacesPage() {
       {/* Hero & Counter (Above The Fold) */}
       <section className="space-y-4">
         <div className="space-y-1.5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
             <Link href="/" className="hover:underline">Home</Link>
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-600">With Spaces</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-700 font-medium">With Spaces</span>
           </nav>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Character Counter With Spaces
@@ -103,11 +103,11 @@ export default function WithSpacesPage() {
           </p>
           <p className="text-sm text-slate-600">
             Need to measure characters without spaces instead for academic or translation requirements? Switch to our{' '}
-            <Link href="/character-counter-without-spaces/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/character-counter-without-spaces/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               character counter without spaces
             </Link>{' '}
             or explore the primary{' '}
-            <Link href="/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               online character counter
             </Link>.
           </p>
@@ -161,7 +161,7 @@ export default function WithSpacesPage() {
         {/* FAQs */}
         <div className="space-y-4 pt-4 border-t border-slate-200">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <HelpCircle className="h-6 w-6 text-emerald-600" />
+            <HelpCircle className="h-6 w-6 text-emerald-700" />
             Characters With Spaces FAQs
           </h2>
           <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-xs">

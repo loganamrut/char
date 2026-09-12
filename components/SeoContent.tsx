@@ -44,57 +44,57 @@ export function SeoContent() {
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Letters (Alphabetic)</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">A-Z, a-z, é, ñ, ø, 文</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
                 <td className="px-4 py-3 text-slate-600">1 char (GSM-7)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Numbers (Digits)</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">0-9, ½, IV</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
                 <td className="px-4 py-3 text-slate-600">1 char (GSM-7)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Standard Spaces</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">[space], [tab], NBSP</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-rose-600 font-medium">No (Ignored)</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-rose-700 font-medium">No (Ignored)</td>
                 <td className="px-4 py-3 text-slate-600">1 char (GSM-7)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Punctuation Marks</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">. , ; : ! ? &ldquo; &rdquo; - ( )</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
                 <td className="px-4 py-3 text-slate-600">1 char (GSM-7)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Mathematical & Currency Symbols</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">$, €, ¥, +, =, %, ©, ™</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
                 <td className="px-4 py-3 text-slate-600">1-2 chars</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Line Breaks (Newlines)</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">\n, \r\n</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">Yes</td>
-                <td className="px-4 py-3 text-rose-600 font-medium">No (Ignored)</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Yes</td>
+                <td className="px-4 py-3 text-rose-700 font-medium">No (Ignored)</td>
                 <td className="px-4 py-3 text-slate-600">1 char</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Standard Emojis</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">😀, 🚀, 💡, 🔥</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">1 Grapheme</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">1 Grapheme</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">1 Grapheme</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">1 Grapheme</td>
                 <td className="px-4 py-3 text-amber-700 font-medium">Forces UCS-2 (70 limit)</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 font-medium text-slate-900">Complex Emoji Sequences (ZWJ)</td>
                 <td className="px-4 py-3 font-mono text-xs text-slate-600">👨‍👩‍👧‍👦, 👩🏽‍💻, 🏳️‍🌈</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">1 Grapheme</td>
-                <td className="px-4 py-3 text-emerald-600 font-medium">1 Grapheme</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">1 Grapheme</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">1 Grapheme</td>
                 <td className="px-4 py-3 text-amber-700 font-medium">Multi-segment SMS</td>
               </tr>
             </tbody>
@@ -119,19 +119,19 @@ export function SeoContent() {
             </h3>
             <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">•</span>
+                <span className="text-emerald-700 font-bold">•</span>
                 <span><strong>Social Media Posts:</strong> X (280), Threads (500), and LinkedIn (3,000) count every space as 1 character.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">•</span>
+                <span className="text-emerald-700 font-bold">•</span>
                 <span><strong>Search Engine Snippets:</strong> Google title tags (~60 chars) and meta descriptions (~155–160 chars) render physical space pixels.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">•</span>
+                <span className="text-emerald-700 font-bold">•</span>
                 <span><strong>SMS Messaging:</strong> Telecom carriers charge based on 160-character 7-bit blocks where each space uses 7 bits.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-600 font-bold">•</span>
+                <span className="text-emerald-700 font-bold">•</span>
                 <span><strong>Paid Advertising:</strong> Google Ads headlines (30 chars) and descriptions (90 chars) strictly include spaces.</span>
               </li>
             </ul>
@@ -144,15 +144,15 @@ export function SeoContent() {
             </h3>
             <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-blue-700 font-bold">•</span>
                 <span><strong>Translation & Localization:</strong> Translation agencies frequently bill per 1,000 characters without spaces (standard German/European billing).</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-blue-700 font-bold">•</span>
                 <span><strong>Academic Requirements:</strong> University theses and research grants often prescribe limits excluding whitespace to prevent double-spacing manipulation.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
+                <span className="text-blue-700 font-bold">•</span>
                 <span><strong>Typographic Density:</strong> Editorial designers measure raw letter count to determine ink coverage and font scaling.</span>
               </li>
             </ul>
@@ -168,20 +168,20 @@ export function SeoContent() {
             &ldquo;The quick brown fox jumps over the lazy dog.&rdquo;
           </p>
           <div className="mt-2.5 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-            <div className="bg-white p-2 rounded border border-slate-200 text-center">
-              <div className="text-slate-400">With Spaces</div>
+            <div className="bg-white p-2.5 rounded border border-slate-200 text-center">
+              <div className="text-slate-600 font-medium">With Spaces</div>
               <div className="font-mono text-base font-bold text-slate-900">44 characters</div>
             </div>
-            <div className="bg-white p-2 rounded border border-slate-200 text-center">
-              <div className="text-slate-400">Without Spaces</div>
+            <div className="bg-white p-2.5 rounded border border-slate-200 text-center">
+              <div className="text-slate-600 font-medium">Without Spaces</div>
               <div className="font-mono text-base font-bold text-slate-900">36 characters</div>
             </div>
-            <div className="bg-white p-2 rounded border border-slate-200 text-center">
-              <div className="text-slate-400">Total Words</div>
+            <div className="bg-white p-2.5 rounded border border-slate-200 text-center">
+              <div className="text-slate-600 font-medium">Total Words</div>
               <div className="font-mono text-base font-bold text-slate-900">9 words</div>
             </div>
-            <div className="bg-white p-2 rounded border border-slate-200 text-center">
-              <div className="text-slate-400">Space Count</div>
+            <div className="bg-white p-2.5 rounded border border-slate-200 text-center">
+              <div className="text-slate-600 font-medium">Space Count</div>
               <div className="font-mono text-base font-bold text-slate-900">8 spaces</div>
             </div>
           </div>
@@ -252,25 +252,25 @@ export function SeoContent() {
       {/* 5. Unicode and Emoji Accuracy */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-          <Cpu className="h-5 w-5 text-emerald-600" />
+          <Cpu className="h-5 w-5 text-emerald-700" />
           Unicode, Accents, and Emoji: Why Most Online Counters Are Inaccurate
         </h2>
         <p className="text-base text-slate-600">
-          Many rudimentary character counters rely on JavaScript&rsquo;s native <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-rose-600">str.length</code> property. However, in modern Unicode typography, that method produces inaccurate counts:
+          Many rudimentary character counters rely on JavaScript&rsquo;s native <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-rose-700 font-semibold">str.length</code> property. However, in modern Unicode typography, that method produces inaccurate counts:
         </p>
 
         <div className="space-y-3">
           <div className="rounded-lg border border-slate-200 bg-white p-4">
             <h3 className="text-sm font-bold text-slate-900">1. Surrogate Pairs &amp; Basic Emojis</h3>
             <p className="mt-1 text-xs sm:text-sm text-slate-600">
-              In UTF-16, astral plane characters (such as emojis like <span className="font-mono">😀</span>) require two 16-bit code units (a high surrogate and a low surrogate). A naive counter calculates <code className="font-mono text-xs">&quot;😀&quot;.length</code> as <strong className="text-rose-600">2</strong>, despite it being a single visual character.
+              In UTF-16, astral plane characters (such as emojis like <span className="font-mono">😀</span>) require two 16-bit code units (a high surrogate and a low surrogate). A naive counter calculates <code className="font-mono text-xs">&quot;😀&quot;.length</code> as <strong className="text-rose-700">2</strong>, despite it being a single visual character.
             </p>
           </div>
 
           <div className="rounded-lg border border-slate-200 bg-white p-4">
             <h3 className="text-sm font-bold text-slate-900">2. Zero-Width Joiner (ZWJ) Sequences</h3>
             <p className="mt-1 text-xs sm:text-sm text-slate-600">
-              Modern emojis—such as profession emojis (<span className="font-mono">👩🏽‍🔬</span>) and family groups (<span className="font-mono">👨‍👩‍👧‍👦</span>)—combine multiple individual Unicode code points joined by hidden Zero-Width Joiner (<code className="font-mono text-xs">U+200D</code>) characters and skin-tone modifiers. A naive counter will report the family emoji as <strong className="text-rose-600">11 characters</strong>. CharCount.dev segments text into <em>User-Perceived Character Clusters</em> (graphemes), correctly reporting it as <strong className="text-emerald-600">1 visual character</strong>.
+              Modern emojis—such as profession emojis (<span className="font-mono">👩🏽‍🔬</span>) and family groups (<span className="font-mono">👨‍👩‍👧‍👦</span>)—combine multiple individual Unicode code points joined by hidden Zero-Width Joiner (<code className="font-mono text-xs">U+200D</code>) characters and skin-tone modifiers. A naive counter will report the family emoji as <strong className="text-rose-700">11 characters</strong>. CharCount.dev segments text into <em>User-Perceived Character Clusters</em> (graphemes), correctly reporting it as <strong className="text-emerald-700">1 visual character</strong>.
             </p>
           </div>
 
@@ -355,26 +355,26 @@ export function SeoContent() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs">
           <div className="rounded-lg bg-white p-3 border border-emerald-100 flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-slate-800 block">No Server Logs</span>
-              <span className="text-slate-500">No database stores or logs your pasted text.</span>
+              <span className="font-semibold text-slate-900 block">No Server Logs</span>
+              <span className="text-slate-600">No database stores or logs your pasted text.</span>
             </div>
           </div>
 
           <div className="rounded-lg bg-white p-3 border border-emerald-100 flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-slate-800 block">No Account Required</span>
-              <span className="text-slate-500">Immediate access without registration or login.</span>
+              <span className="font-semibold text-slate-900 block">No Account Required</span>
+              <span className="text-slate-600">Immediate access without registration or login.</span>
             </div>
           </div>
 
           <div className="rounded-lg bg-white p-3 border border-emerald-100 flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-700 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-slate-800 block">Zero AI Training</span>
-              <span className="text-slate-500">Your proprietary writing is never used to train LLMs.</span>
+              <span className="font-semibold text-slate-900 block">Zero AI Training</span>
+              <span className="text-slate-600">Your proprietary writing is never used to train LLMs.</span>
             </div>
           </div>
         </div>

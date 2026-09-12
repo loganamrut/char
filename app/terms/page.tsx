@@ -41,7 +41,7 @@ export default function TermsPage() {
       />
 
       <div>
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 mb-4">
           <Link href="/" className="inline-flex items-center gap-1 hover:underline">
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
           </Link>
@@ -49,7 +49,7 @@ export default function TermsPage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           Terms of Service
         </h1>
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-slate-600 font-medium">
           Last Updated: {lastUpdated}
         </p>
       </div>

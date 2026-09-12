@@ -150,18 +150,18 @@ export function TextEditor({
       </div>
 
       {/* Editor Status Bar */}
-      <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/50 px-4 py-2 text-[11px] text-slate-500 rounded-b-xl">
+      <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/50 px-4 py-2 text-[11px] text-slate-600 rounded-b-xl font-medium">
         <div className="flex items-center gap-3">
-          <span className="font-mono font-medium text-slate-700">
+          <span className="font-mono font-medium text-slate-800">
             {charCount.toLocaleString()} {charCount === 1 ? 'character' : 'characters'}
           </span>
           <span>•</span>
-          <span className="font-mono font-medium text-slate-700">
+          <span className="font-mono font-medium text-slate-800">
             {wordCount.toLocaleString()} {wordCount === 1 ? 'word' : 'words'}
           </span>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-slate-400">
+        <div className="hidden sm:flex items-center gap-2 text-slate-600 font-medium">
           <FileText className="h-3 w-3" />
           <span>Supports UTF-8, Emojis, Accents, and Multilingual Scripts</span>
         </div>

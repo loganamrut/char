@@ -42,7 +42,7 @@ export function RelatedTools() {
         <h2 id="related-tools-heading" className="text-xl font-bold text-slate-900">
           Related Writing &amp; Text Analysis Tools
         </h2>
-        <p className="text-xs text-slate-500 mt-0.5">
+        <p className="text-xs text-slate-600 mt-0.5">
           Dedicated text utilities built with the same 100% private, client-side architecture.
         </p>
       </div>
@@ -57,18 +57,18 @@ export function RelatedTools() {
               className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-emerald-500 hover:shadow-xs focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 group-hover:bg-emerald-700 group-hover:text-white transition-colors">
                   <Icon className="h-4 w-4" />
                 </div>
-                <h3 className="mt-3 text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                <h3 className="mt-3 text-sm font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
                   {tool.title}
                 </h3>
-                <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                   {tool.description}
                 </p>
               </div>
 
-              <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-600 group-hover:translate-x-0.5 transition-transform">
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-700 group-hover:translate-x-0.5 transition-transform">
                 <span>Use tool</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </div>

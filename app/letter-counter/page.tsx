@@ -79,10 +79,10 @@ export default function LetterCounterPage() {
       {/* Hero & Counter (Above The Fold) */}
       <section className="space-y-4">
         <div className="space-y-1.5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
             <Link href="/" className="hover:underline">Home</Link>
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-600">Letter Counter</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-700 font-medium">Letter Counter</span>
           </nav>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Letter Counter
@@ -107,11 +107,11 @@ export default function LetterCounterPage() {
           </p>
           <p className="text-sm text-slate-600">
             If you need to include punctuation, digits, or spaces in your tally, return to our primary{' '}
-            <Link href="/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               free character counter
             </Link>{' '}
             or explore the{' '}
-            <Link href="/word-counter/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/word-counter/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               word counter online
             </Link>.
           </p>
@@ -137,16 +137,16 @@ export default function LetterCounterPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 bg-white font-mono text-xs">
-                <tr><td className="px-4 py-2.5 font-bold">1</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">E</td><td className="px-4 py-2.5 font-sans">12.70%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">2</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">T</td><td className="px-4 py-2.5 font-sans">9.06%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">3</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">A</td><td className="px-4 py-2.5 font-sans">8.17%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">4</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">O</td><td className="px-4 py-2.5 font-sans">7.51%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">5</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">I</td><td className="px-4 py-2.5 font-sans">6.97%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">6</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">N</td><td className="px-4 py-2.5 font-sans">6.75%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">7</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">S</td><td className="px-4 py-2.5 font-sans">6.33%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">8</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">H</td><td className="px-4 py-2.5 font-sans">6.09%</td><td className="px-4 py-2.5">4 pts</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">9</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">R</td><td className="px-4 py-2.5 font-sans">5.99%</td><td className="px-4 py-2.5">1 pt</td></tr>
-                <tr><td className="px-4 py-2.5 font-bold">10</td><td className="px-4 py-2.5 text-emerald-600 font-bold text-sm">D</td><td className="px-4 py-2.5 font-sans">4.25%</td><td className="px-4 py-2.5">2 pts</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">1</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">E</td><td className="px-4 py-2.5 font-sans">12.70%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">2</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">T</td><td className="px-4 py-2.5 font-sans">9.06%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">3</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">A</td><td className="px-4 py-2.5 font-sans">8.17%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">4</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">O</td><td className="px-4 py-2.5 font-sans">7.51%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">5</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">I</td><td className="px-4 py-2.5 font-sans">6.97%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">6</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">N</td><td className="px-4 py-2.5 font-sans">6.75%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">7</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">S</td><td className="px-4 py-2.5 font-sans">6.33%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">8</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">H</td><td className="px-4 py-2.5 font-sans">6.09%</td><td className="px-4 py-2.5">4 pts</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">9</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">R</td><td className="px-4 py-2.5 font-sans">5.99%</td><td className="px-4 py-2.5">1 pt</td></tr>
+                <tr><td className="px-4 py-2.5 font-bold">10</td><td className="px-4 py-2.5 text-emerald-700 font-bold text-sm">D</td><td className="px-4 py-2.5 font-sans">4.25%</td><td className="px-4 py-2.5">2 pts</td></tr>
               </tbody>
             </table>
           </div>
@@ -155,7 +155,7 @@ export default function LetterCounterPage() {
         {/* Letter Counter FAQs */}
         <div className="space-y-4 pt-4 border-t border-slate-200">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <HelpCircle className="h-6 w-6 text-emerald-600" />
+            <HelpCircle className="h-6 w-6 text-emerald-700" />
             Letter Counter FAQs
           </h2>
           <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-xs">

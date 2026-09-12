@@ -15,7 +15,7 @@ export function FaqSection() {
     <section id="faq" className="space-y-6 pt-4" aria-labelledby="faq-heading">
       <div className="border-b border-slate-200 pb-4">
         <h2 id="faq-heading" className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2.5">
-          <HelpCircle className="h-6 w-6 text-emerald-600" aria-hidden="true" />
+          <HelpCircle className="h-6 w-6 text-emerald-700" aria-hidden="true" />
           Frequently Asked Questions
         </h2>
         <p className="mt-1 text-sm text-slate-600">
@@ -36,8 +36,8 @@ export function FaqSection() {
               >
                 <span className="pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 ${
-                    isOpen ? 'rotate-180 text-emerald-600' : ''
+                  className={`h-4 w-4 shrink-0 text-slate-500 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180 text-emerald-700' : ''
                   }`}
                   aria-hidden="true"
                 />

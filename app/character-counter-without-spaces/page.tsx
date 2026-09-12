@@ -75,10 +75,10 @@ export default function WithoutSpacesPage() {
       {/* Hero & Counter (Above The Fold) */}
       <section className="space-y-4">
         <div className="space-y-1.5">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
             <Link href="/" className="hover:underline">Home</Link>
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-600">Without Spaces</span>
+            <span className="text-slate-600">/</span>
+            <span className="text-slate-700 font-medium">Without Spaces</span>
           </nav>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Character Counter Without Spaces
@@ -117,11 +117,11 @@ export default function WithoutSpacesPage() {
           </div>
           <p className="text-sm text-slate-600 pt-2">
             If you need to verify social media limits or include spaces, use our{' '}
-            <Link href="/character-counter-with-spaces/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/character-counter-with-spaces/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               character counter with spaces
             </Link>{' '}
             or visit the primary{' '}
-            <Link href="/" className="font-semibold text-emerald-600 underline hover:text-emerald-700">
+            <Link href="/" className="font-semibold text-emerald-700 underline hover:text-emerald-800">
               online character counter
             </Link>.
           </p>
@@ -140,7 +140,7 @@ export default function WithoutSpacesPage() {
         {/* FAQs */}
         <div className="space-y-4 pt-4 border-t border-slate-200">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <HelpCircle className="h-6 w-6 text-emerald-600" />
+            <HelpCircle className="h-6 w-6 text-emerald-700" />
             Characters Without Spaces FAQs
           </h2>
           <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-xs">

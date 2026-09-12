@@ -40,12 +40,12 @@ export function CharacterLimitControl({
       {/* Header & Limit Input */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Target className="h-4 w-4 text-emerald-600 shrink-0" aria-hidden="true" />
+          <Target className="h-4 w-4 text-emerald-700 shrink-0" aria-hidden="true" />
           <h2 className="text-sm font-semibold text-slate-900">
             Character Limit Checker
           </h2>
           {activePresetName && (
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 truncate max-w-[150px]">
+            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 truncate max-w-[150px]">
               {activePresetName}
             </span>
           )}
@@ -53,7 +53,7 @@ export function CharacterLimitControl({
 
         {/* Custom Input */}
         <div className="flex items-center gap-2 self-start sm:self-auto">
-          <label htmlFor="custom-limit-input" className="text-xs text-slate-500 font-medium">
+          <label htmlFor="custom-limit-input" className="text-xs text-slate-600 font-medium">
             Limit:
           </label>
           <div className="relative flex items-center">
@@ -75,7 +75,7 @@ export function CharacterLimitControl({
               <button
                 type="button"
                 onClick={() => onSetLimit(null)}
-                className="absolute right-2 text-slate-400 hover:text-slate-600 p-0.5"
+                className="absolute right-2 text-slate-500 hover:text-slate-800 p-0.5"
                 title="Remove character limit"
                 aria-label="Remove character limit"
               >
@@ -90,11 +90,11 @@ export function CharacterLimitControl({
       {hasLimit ? (
         <div className="space-y-2 pt-0.5">
           <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 text-xs">
-            <div className="flex items-center gap-1.5 font-mono font-medium text-slate-700">
+            <div className="flex items-center gap-1.5 font-mono font-medium text-slate-800">
               <span>{currentCount.toLocaleString()}</span>
-              <span className="text-slate-400">/</span>
+              <span className="text-slate-600 font-bold">/</span>
               <span>{limit.toLocaleString()}</span>
-              <span className="text-slate-400 font-sans">({percentage}%)</span>
+              <span className="text-slate-600 font-sans">({percentage}%)</span>
             </div>
 
             <div
@@ -136,14 +136,14 @@ export function CharacterLimitControl({
           </div>
         </div>
       ) : (
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-600 font-medium">
           Set a custom character limit or select a preset below to see live countdown and progress alerts.
         </p>
       )}
 
       {/* Preset Buttons with friendly touch targets */}
       <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-slate-100">
-        <span className="text-xs font-medium text-slate-400 mr-1 hidden xs:inline">Presets:</span>
+        <span className="text-xs font-medium text-slate-600 mr-1 hidden xs:inline">Presets:</span>
         {COMMON_NUMERIC_PRESETS.map((p) => {
           const isSelected = limit === p;
           return (

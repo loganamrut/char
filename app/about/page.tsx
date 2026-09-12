@@ -39,7 +39,7 @@ export default function AboutPage() {
       />
 
       <div>
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 mb-4">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 mb-4">
           <Link href="/" className="inline-flex items-center gap-1 hover:underline">
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Character Counter
           </Link>
