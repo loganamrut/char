@@ -6,6 +6,6 @@
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#brandGrad)"/>
-  <path d="M196 116 L164 396 M348 116 L316 396 M120 216 L400 216 M104 304 L384 304" 
-        stroke="#ffffff" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M200 116 L168 396 M344 116 L312 396 M120 204 L400 204 M104 308 L384 308" 
+        stroke="#ffffff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
