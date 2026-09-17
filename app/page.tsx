@@ -112,22 +112,28 @@ export default function HomePage() {
         </div>
 
         {/* Infographic Graphic with Responsive Picture & Alt Optimization */}
-        <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-900/5 shadow-2xs">
-          <picture>
-            <source
-              srcSet="/images/how-character-counter-works.webp"
-              type="image/webp"
-            />
-            <img
-              src="/images/how-character-counter-works.png"
-              alt="Character Counter - How it works step-by-step text analysis process showing live character count with spaces, without spaces, word count, and platform limit meters"
-              width={1200}
-              height={520}
-              loading="eager"
-              decoding="async"
-              className="w-full h-auto object-cover select-none"
-            />
-          </picture>
+        <figure className="w-full max-w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50/50 shadow-2xs">
+          <div className="w-full overflow-x-auto scrollbar-thin">
+            <picture className="block w-full">
+              <source
+                srcSet="/images/how-character-counter-works.svg"
+                type="image/svg+xml"
+              />
+              <source
+                srcSet="/images/how-character-counter-works.webp"
+                type="image/webp"
+              />
+              <img
+                src="/images/how-character-counter-works.png"
+                alt="Character Counter - How it works step-by-step text analysis process showing live character count with spaces, without spaces, word count, and platform limit meters"
+                width={1200}
+                height={520}
+                loading="eager"
+                decoding="async"
+                className="block w-full max-w-full h-auto object-contain select-none"
+              />
+            </picture>
+          </div>
           <figcaption className="bg-slate-50 px-4 py-3 text-xs text-slate-600 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <span>
               <strong>Figure 1:</strong> Step-by-step character counter workflow &mdash; input, local regex/grapheme engine, dual-metric tally, and one-click export.
