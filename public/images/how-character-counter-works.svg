@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="520" fill="#f8fafc" rx="20" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Top Banner Header -->
+  <path d="M 0 20 Q 0 0 20 0 L 1180 0 Q 1200 0 1200 20 L 1200 100 L 0 100 Z" fill="url(#headerGrad)"/>
+
+  <!-- Brand & Header Title -->
+  <g transform="translate(40, 24)">
+    <!-- Logo Badge -->
+    <rect width="52" height="52" rx="12" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="26" y="36" font-size="28" font-family="monospace" font-weight="bold" fill="#ffffff" text-anchor="middle">#</text>
+    
+    <!-- Title & Subtitle -->
+    <text x="70" y="32" font-size="26" font-weight="800" fill="#ffffff" letter-spacing="-0.5">How Character Counter Works</text>
+    <text x="70" y="52" font-size="14" font-weight="500" fill="#a7f3d0">100% In-Browser Text Processing Architecture • Zero Server Latency • Complete Privacy</text>
+  </g>
+
+  <g transform="translate(1000, 36)">
+    <rect width="160" height="32" rx="16" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-opacity="0.4"/>
+    <text x="80" y="21" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">⚡ LIVE ENGINE</text>
+  </g>
+
+  <!-- Connectors Between Cards -->
+  <path d="M 305 270 L 335 270 M 330 262 L 338 270 L 330 278" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 595 270 L 625 270 M 620 262 L 628 270 L 620 278" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 885 270 L 915 270 M 910 262 L 918 270 L 910 278" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- ==================== CARD 1: INPUT ==================== -->
+  <g transform="translate(40, 125)">
+    <rect width="265" height="310" rx="16" fill="url(#cardGrad1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Step Badge -->
+    <rect x="20" y="20" width="82" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="61" y="37" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">STEP 01</text>
+    
+    <!-- Title -->
+    <text x="20" y="78" font-size="18" font-weight="800" fill="#0f172a">Input &amp; Paste</text>
+    <text x="20" y="98" font-size="12" font-weight="500" fill="#64748b">Real-Time Text Ingestion</text>
+
+    <!-- Visual Box -->
+    <rect x="20" y="115" width="225" height="60" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="32" y="140" font-size="12" font-family="monospace" fill="#334155">Type or paste text...</text>
+    <rect x="180" y="128" width="2" height="16" fill="#059669" />
+
+    <!-- Feature Checklist -->
+    <g transform="translate(20, 195)" font-size="12" fill="#334155">
+      <circle cx="6" cy="6" r="4" fill="#059669"/>
+      <text x="18" y="10" font-weight="600">Instant Keystroke Detection</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#059669"/>
+      <text x="18" y="36" font-weight="600">Unicode &amp; Diacritics Support</text>
+
+      <circle cx="6" cy="58" r="4" fill="#059669"/>
+      <text x="18" y="62" font-weight="600">Emojis &amp; Multi-Byte Scripts</text>
+
+      <circle cx="6" cy="84" r="4" fill="#059669"/>
+      <text x="18" y="88" font-weight="600">No Word or File Size Limits</text>
+    </g>
+  </g>
+
+  <!-- ==================== CARD 2: PROCESSING ==================== -->
+  <g transform="translate(330, 125)">
+    <rect width="265" height="310" rx="16" fill="url(#cardGrad1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Step Badge -->
+    <rect x="20" y="20" width="82" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="61" y="37" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">STEP 02</text>
+    
+    <!-- Title -->
+    <text x="20" y="78" font-size="18" font-weight="800" fill="#0f172a">Browser Engine</text>
+    <text x="20" y="98" font-size="12" font-weight="500" fill="#64748b">100% Client-Side Memory</text>
+
+    <!-- Visual Box -->
+    <rect x="20" y="115" width="225" height="60" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="32" y="139" font-size="12" font-weight="700" fill="#047857">🛡️ Zero Server Upload</text>
+    <text x="32" y="157" font-size="11" font-weight="500" fill="#065f46">Intl.Segmenter Grapheme Engine</text>
+
+    <!-- Feature Checklist -->
+    <g transform="translate(20, 195)" font-size="12" fill="#334155">
+      <circle cx="6" cy="6" r="4" fill="#047857"/>
+      <text x="18" y="10" font-weight="600">Grapheme Cluster Segmentation</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#047857"/>
+      <text x="18" y="36" font-weight="600">Zero Network Transmission</text>
+
+      <circle cx="6" cy="58" r="4" fill="#047857"/>
+      <text x="18" y="62" font-weight="600">Sub-millisecond Execution</text>
+
+      <circle cx="6" cy="84" r="4" fill="#047857"/>
+      <text x="18" y="88" font-weight="600">100% Privacy &amp; Data Safety</text>
+    </g>
+  </g>
+
+  <!-- ==================== CARD 3: ANALYSIS ==================== -->
+  <g transform="translate(620, 125)">
+    <rect width="265" height="310" rx="16" fill="url(#cardGrad1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Step Badge -->
+    <rect x="20" y="20" width="82" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="61" y="37" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">STEP 03</text>
+    
+    <!-- Title -->
+    <text x="20" y="78" font-size="18" font-weight="800" fill="#0f172a">Metrics &amp; Limits</text>
+    <text x="20" y="98" font-size="12" font-weight="500" fill="#64748b">Instant Dual Counting</text>
+
+    <!-- Visual Box -->
+    <rect x="20" y="115" width="225" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="32" y="137" font-size="11" font-weight="600" fill="#475569">With Spaces: <tspan font-weight="800" fill="#0f172a">1,420</tspan></text>
+    <text x="32" y="157" font-size="11" font-weight="600" fill="#475569">No Spaces: <tspan font-weight="800" fill="#047857">1,180</tspan> | Words: <tspan font-weight="800" fill="#0f172a">245</tspan></text>
+
+    <!-- Feature Checklist -->
+    <g transform="translate(20, 195)" font-size="12" fill="#334155">
+      <circle cx="6" cy="6" r="4" fill="#059669"/>
+      <text x="18" y="10" font-weight="600">Dual Space-Aware Counts</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#059669"/>
+      <text x="18" y="36" font-weight="600">Words, Sentences, Lines</text>
+
+      <circle cx="6" cy="58" r="4" fill="#059669"/>
+      <text x="18" y="62" font-weight="600">WPM Reading &amp; Speaking Time</text>
+
+      <circle cx="6" cy="84" r="4" fill="#059669"/>
+      <text x="18" y="88" font-weight="600">Social Limits (X, SMS, Meta)</text>
+    </g>
+  </g>
+
+  <!-- ==================== CARD 4: ACTIONS ==================== -->
+  <g transform="translate(910, 125)">
+    <rect width="250" height="310" rx="16" fill="url(#cardGrad1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Step Badge -->
+    <rect x="20" y="20" width="82" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text x="61" y="37" font-size="11" font-weight="800" fill="#047857" text-anchor="middle">STEP 04</text>
+    
+    <!-- Title -->
+    <text x="20" y="78" font-size="18" font-weight="800" fill="#0f172a">Format &amp; Export</text>
+    <text x="20" y="98" font-size="12" font-weight="500" fill="#64748b">1-Click Text Actions</text>
+
+    <!-- Visual Box -->
+    <rect x="20" y="115" width="210" height="60" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <rect x="28" y="127" width="46" height="20" rx="4" fill="#059669"/>
+    <text x="51" y="141" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">Copy</text>
+    <rect x="80" y="127" width="60" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="110" y="141" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Trim</text>
+    <rect x="146" y="127" width="76" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="184" y="141" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Clean Spc</text>
+    <text x="30" y="163" font-size="10" font-weight="500" fill="#64748b">UPPERCASE • lowercase • Title</text>
+
+    <!-- Feature Checklist -->
+    <g transform="translate(20, 195)" font-size="12" fill="#334155">
+      <circle cx="6" cy="6" r="4" fill="#047857"/>
+      <text x="18" y="10" font-weight="600">Clean Extra Whitespace</text>
+      
+      <circle cx="6" cy="32" r="4" fill="#047857"/>
+      <text x="18" y="36" font-weight="600">Remove Empty Line Breaks</text>
+
+      <circle cx="6" cy="58" r="4" fill="#047857"/>
+      <text x="18" y="62" font-weight="600">Case Transformation Engine</text>
+
+      <circle cx="6" cy="84" r="4" fill="#047857"/>
+      <text x="18" y="88" font-weight="600">Instant Clipboard &amp; .TXT File</text>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(40, 460)">
+    <rect width="1120" height="42" rx="10" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="24" y="26" font-size="12" font-weight="600" fill="#475569">CharCount.dev Architecture • Engineered for Writers, SEO Strategists, Editors, and Developers</text>
+    <text x="1096" y="26" font-size="12" font-weight="700" fill="#047857" text-anchor="end">🔒 100% In-Browser Privacy Guaranteed</text>
+  </g>
+</svg>

@@ -85,6 +85,8 @@ export function getWebApplicationSchema(customTool?: {
       'Requires JavaScript. Works in all modern browsers (Chrome, Safari, Firefox, Edge).',
     softwareVersion: '1.0',
     inLanguage: 'en-US',
+    image: `${SITE_CONFIG.domain}/images/og-image.png`,
+    screenshot: `${SITE_CONFIG.domain}/images/how-character-counter-works.png`,
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -101,12 +103,14 @@ export interface HowToStepItem {
   name: string;
   text: string;
   url?: string;
+  image?: string;
 }
 
 export function getHowToSchema(params: {
   name: string;
   description: string;
   url: string;
+  image?: string;
   steps: HowToStepItem[];
 }) {
   return {
@@ -115,6 +119,7 @@ export function getHowToSchema(params: {
     '@id': `${params.url}#howto`,
     name: params.name,
     description: params.description,
+    image: params.image || `${SITE_CONFIG.domain}/images/how-character-counter-works.png`,
     inLanguage: 'en-US',
     step: params.steps.map((step, index) => ({
       '@type': 'HowToStep',
@@ -122,7 +127,41 @@ export function getHowToSchema(params: {
       name: step.name,
       text: step.text,
       url: step.url || params.url,
+      ...(step.image ? { image: step.image } : {}),
     })),
+  };
+}
+
+export function getImageObjectSchema(params: {
+  url: string;
+  name: string;
+  description: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}) {
+  const fullUrl = params.url.startsWith('http')
+    ? params.url
+    : `${SITE_CONFIG.domain}${params.url.startsWith('/') ? '' : '/'}${params.url}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    '@id': `${fullUrl}#image`,
+    contentUrl: fullUrl,
+    url: fullUrl,
+    name: params.name,
+    description: params.description,
+    caption: params.caption || params.description,
+    width: params.width || 1200,
+    height: params.height || 520,
+    inLanguage: 'en-US',
+    author: {
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+    },
+    copyrightHolder: {
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+    },
   };
 }
 

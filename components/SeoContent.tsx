@@ -1,9 +1,142 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, XCircle, Sparkles, BookOpen, Search, Cpu } from 'lucide-react';
+import Link from 'next/link';
+import { ShieldCheck, CheckCircle2, XCircle, Sparkles, BookOpen, Search, Cpu, ListOrdered, Share2 } from 'lucide-react';
 
 export function SeoContent() {
   return (
     <div className="space-y-12 text-slate-700 leading-relaxed pt-6">
+      {/* Quick-Jump Table of Contents for Google Sitelinks & User Navigation */}
+      <nav
+        aria-label="Table of contents"
+        className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 sm:p-6"
+      >
+        <div className="flex items-center gap-2 mb-3">
+          <BookOpen className="h-5 w-5 text-blue-600" />
+          <h2 className="text-sm sm:text-base font-bold text-slate-900 uppercase tracking-wide">
+            On-Page SEO Guide &amp; Quick-Jump Reference
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-xs sm:text-sm">
+          <a
+            href="#how-character-counter-works"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">01.</span> How It Works (Diagram)
+          </a>
+          <a
+            href="#character-counter-cheat-sheet"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">02.</span> Quick Facts &amp; Cheat Sheet
+          </a>
+          <a
+            href="#what-is-character-counter"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">03.</span> What Is a Character Counter?
+          </a>
+          <a
+            href="#character-classification-matrix"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">04.</span> What Gets Counted? Matrix
+          </a>
+          <a
+            href="#characters-with-vs-without-spaces"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">05.</span> With Spaces vs. Without Spaces
+          </a>
+          <a
+            href="#character-count-vs-word-count"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">06.</span> Character &amp; Word Count Ratios
+          </a>
+          <a
+            href="#character-limits-reference"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">07.</span> Platform Limits (X, SMS, SEO)
+          </a>
+          <a
+            href="#unicode-and-emoji-accuracy"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">08.</span> Unicode &amp; Emoji Accuracy
+          </a>
+          <a
+            href="#industry-use-cases"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">09.</span> Professional Use Cases
+          </a>
+          <a
+            href="#privacy-guarantee"
+            className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
+          >
+            <span className="text-slate-400 font-mono">10.</span> Client-Side Privacy Policy
+          </a>
+        </div>
+      </nav>
+
+      {/* Featured Snippet Cheat Sheet */}
+      <section
+        id="character-counter-cheat-sheet"
+        className="rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30 p-6 sm:p-8 space-y-6 shadow-xs"
+      >
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Direct Answer Cheat Sheet</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            Character Counter Quick Facts &amp; Direct Answers
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600">
+            Looking for quick answers on character counting rules, spaces, limits, and conversion ratios? Here is the essential cheat sheet:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span className="text-blue-600 font-mono">Q:</span> Do character counters count spaces?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <strong className="text-slate-900">Yes, by default.</strong> In digital publishing, programming, and platform limits (X/Twitter, SMS, Google SEO tags), each space counts as 1 character. However, specialized sectors like translation and German editorial standards calculate &ldquo;characters without spaces&rdquo; to measure raw semantic density.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span className="text-blue-600 font-mono">Q:</span> How many characters are in an average word?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              In standard English writing, an average word contains <strong className="text-slate-900">5 characters without spaces</strong> and <strong className="text-slate-900">6 characters including the trailing space</strong>. Thus, a 500-word article spans ~2,500 characters (no spaces) or ~3,000 characters (with spaces).
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span className="text-blue-600 font-mono">Q:</span> What is the character limit for SMS messages?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Standard GSM-7 text messages permit up to <strong className="text-slate-900">160 characters</strong> per segment. If your message contains even a single emoji or special symbol, telecom networks switch to UCS-2 encoding, shrinking your single-message limit to <strong className="text-rose-700">70 characters</strong>.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span className="text-blue-600 font-mono">Q:</span> What is the optimal character limit for Google SEO?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              For Google search snippet visibility, title tags should stay between <strong className="text-slate-900">50 to 60 characters</strong> (~600 pixels width). Meta descriptions should remain between <strong className="text-slate-900">150 to 160 characters</strong> (~960 pixels) to avoid truncation.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 1. What is a Character Counter? */}
       <section id="what-is-character-counter" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -13,12 +146,12 @@ export function SeoContent() {
           A <strong className="font-semibold text-slate-900">character counter</strong> is an online text analysis tool that computes the total quantity of characters in any written passage. In computing and typography, a &ldquo;character&rdquo; represents any individual typographic symbol: letters of the alphabet, numerical digits, punctuation marks, whitespace, line breaks, and emojis.
         </p>
         <p className="text-base text-slate-600 leading-relaxed">
-          Unlike basic word processors that often bury character counts inside submenus or count multi-byte emojis unpredictably, CharCount.dev provides instantaneous, real-time feedback with dual metrics: <span className="font-medium text-slate-800">characters with spaces</span> and <span className="font-medium text-slate-800">characters without spaces</span>.
+          Unlike basic word processors that often bury character counts inside submenus or count multi-byte emojis unpredictably, CharCount.dev provides instantaneous, real-time feedback with dual metrics: <span className="font-medium text-slate-800">characters with spaces</span> and <span className="font-medium text-slate-800">characters without spaces</span>. For specialized counting needs, you can also use our dedicated <Link href="/word-counter" className="text-blue-600 underline font-medium hover:text-blue-800">Word Counter</Link> and <Link href="/letter-counter" className="text-blue-600 underline font-medium hover:text-blue-800">Letter Counter</Link>.
         </p>
       </section>
 
       {/* 2. Character Classification Comparison Table */}
-      <section className="space-y-4">
+      <section id="character-classification-matrix" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900">
           Character Classification Matrix: What Gets Counted?
         </h2>
@@ -103,12 +236,12 @@ export function SeoContent() {
       </section>
 
       {/* 3. Characters With Spaces vs. Without Spaces */}
-      <section className="space-y-4">
+      <section id="characters-with-vs-without-spaces" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900">
           Characters With Spaces vs. Characters Without Spaces
         </h2>
         <p className="text-base text-slate-600">
-          One of the most frequent points of confusion in copywriting, academic submissions, and digital advertising is whether a stated &ldquo;character count&rdquo; includes spaces.
+          One of the most frequent points of confusion in copywriting, academic submissions, and digital advertising is whether a stated &ldquo;character count&rdquo; includes spaces. Need to isolate or format whitespace specifically? Check out our dedicated <Link href="/space-counter" className="text-blue-600 underline font-medium hover:text-blue-800">Space Counter</Link> and <Link href="/remove-spaces" className="text-blue-600 underline font-medium hover:text-blue-800">Remove Spaces Tool</Link>.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -189,7 +322,7 @@ export function SeoContent() {
       </section>
 
       {/* 4. Character Count vs Word Count */}
-      <section className="space-y-4">
+      <section id="character-count-vs-word-count" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900">
           Character Count vs. Word Count: Conversion Ratios
         </h2>
@@ -247,10 +380,126 @@ export function SeoContent() {
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-slate-500 pt-1">
+          Need in-depth word metrics or vocabulary analysis? Switch over to our dedicated <Link href="/word-counter" className="text-blue-600 underline font-medium hover:text-blue-800">Word Counter</Link>.
+        </p>
+      </section>
+
+      {/* Platform Limits Reference Table */}
+      <section id="character-limits-reference" className="space-y-4">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+          Complete Platform &amp; Character Limit Reference Guide
+        </h2>
+        <p className="text-sm sm:text-base text-slate-600">
+          Stay within strict character restrictions across search engines, social media platforms, mobile messaging, and ad networks:
+        </p>
+
+        <div className="sm:hidden text-[11px] text-slate-500 font-medium">
+          ← Scroll horizontally to inspect full table →
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-2xs table-container">
+          <table className="w-full min-w-[560px] text-left text-sm text-slate-700">
+            <thead className="bg-slate-100/80 text-xs font-semibold uppercase tracking-wider text-slate-900">
+              <tr>
+                <th scope="col" className="px-4 py-3">Platform / Channel</th>
+                <th scope="col" className="px-4 py-3">Content Field</th>
+                <th scope="col" className="px-4 py-3">Strict Max Limit</th>
+                <th scope="col" className="px-4 py-3">Optimal / Safe Zone</th>
+                <th scope="col" className="px-4 py-3">Counts Spaces?</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 bg-white">
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">X (Twitter)</td>
+                <td className="px-4 py-3 text-slate-600">Standard Post (Free)</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">280 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">200–250 chars</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Threads</td>
+                <td className="px-4 py-3 text-slate-600">Post Text</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">500 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">250–400 chars</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Instagram</td>
+                <td className="px-4 py-3 text-slate-600">Caption / Post Body</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">2,200 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">125 chars (before &ldquo;...more&rdquo;)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Instagram</td>
+                <td className="px-4 py-3 text-slate-600">Profile Bio</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">150 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">130–150 chars</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">LinkedIn</td>
+                <td className="px-4 py-3 text-slate-600">Post Update</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">3,000 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">140 chars (before &ldquo;see more&rdquo;)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Google Search</td>
+                <td className="px-4 py-3 text-slate-600">SEO Page Title Tag</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">~60 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">50–60 chars (600px)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Google Search</td>
+                <td className="px-4 py-3 text-slate-600">Meta Description</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">~160 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">140–155 chars (960px)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">Google Ads</td>
+                <td className="px-4 py-3 text-slate-600">Ad Headline</td>
+                <td className="px-4 py-3 font-mono font-semibold text-rose-700">30 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">25–30 chars</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">SMS (Cellular)</td>
+                <td className="px-4 py-3 text-slate-600">Standard GSM-7 Text</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">160 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Up to 160 per segment</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">SMS (Cellular)</td>
+                <td className="px-4 py-3 text-slate-600">Unicode/Emoji (UCS-2)</td>
+                <td className="px-4 py-3 font-mono font-semibold text-rose-700">70 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">Avoid emojis if saving segments</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">YouTube</td>
+                <td className="px-4 py-3 text-slate-600">Video Title</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">100 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">60–70 chars (mobile cutoff)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-slate-900">TikTok</td>
+                <td className="px-4 py-3 text-slate-600">Video Description</td>
+                <td className="px-4 py-3 font-mono font-semibold text-slate-900">2,200 characters</td>
+                <td className="px-4 py-3 text-emerald-700 font-medium">100–150 chars (high engagement)</td>
+                <td className="px-4 py-3 text-emerald-700">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {/* 5. Unicode and Emoji Accuracy */}
-      <section className="space-y-4">
+      <section id="unicode-and-emoji-accuracy" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
           <Cpu className="h-5 w-5 text-emerald-700" />
           Unicode, Accents, and Emoji: Why Most Online Counters Are Inaccurate
@@ -281,10 +530,13 @@ export function SeoContent() {
             </p>
           </div>
         </div>
+        <p className="text-xs text-slate-500 pt-1">
+          To inspect character frequencies or transform letter formatting across Unicode text, test our <Link href="/character-frequency" className="text-blue-600 underline font-medium hover:text-blue-800">Character Frequency Analyzer</Link> and <Link href="/case-converter" className="text-blue-600 underline font-medium hover:text-blue-800">Case Converter</Link>.
+        </p>
       </section>
 
       {/* 6. Comprehensive Use Cases */}
-      <section className="space-y-4">
+      <section id="industry-use-cases" className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900">
           Who Uses a Character Counter? (Common Use Cases)
         </h2>
@@ -334,7 +586,7 @@ export function SeoContent() {
       </section>
 
       {/* 7. Privacy Guarantee */}
-      <section className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-6 sm:p-8 space-y-4">
+      <section id="privacy-guarantee" className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-6 sm:p-8 space-y-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white">
             <ShieldCheck className="h-5 w-5" />
