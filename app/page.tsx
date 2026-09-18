@@ -3,12 +3,14 @@ import { CharacterCounter } from '@/components/CharacterCounter';
 import { SeoContent } from '@/components/SeoContent';
 import { FaqSection } from '@/components/FaqSection';
 import { RelatedTools } from '@/components/RelatedTools';
+import { HowItWorksVideo } from '@/components/HowItWorksVideo';
 import {
   getFaqSchema,
   getBreadcrumbSchema,
   getWebApplicationSchema,
   getHowToSchema,
   getImageObjectSchema,
+  getVideoObjectSchema,
 } from '@/lib/seo/json-ld';
 
 export default function HomePage() {
@@ -48,6 +50,41 @@ export default function HomePage() {
     width: 1200,
     height: 520,
   });
+  const videoJsonLd = getVideoObjectSchema({
+    name: 'How Character Counter Works - Step-by-Step Video Guide',
+    description:
+      'Learn how CharCount.dev analyzes text in real time with characters with spaces, characters without spaces, word count, and social media limits 100% in your browser.',
+    thumbnailUrl: [
+      'https://charcount.dev/images/how-character-counter-works.png',
+      'https://charcount.dev/images/og-image.png',
+    ],
+    uploadDate: '2026-09-18T00:00:00Z',
+    duration: 'PT20S',
+    contentUrl: 'https://charcount.dev/videos/how-character-counter-works.mp4',
+    embedUrl: 'https://charcount.dev/#how-character-counter-works',
+    clips: [
+      {
+        name: 'Input & Paste Text',
+        startOffset: 0,
+        endOffset: 5,
+      },
+      {
+        name: 'In-Browser Privacy Engine & Unicode',
+        startOffset: 5,
+        endOffset: 10,
+      },
+      {
+        name: 'Dual Character Counts & Platform Limits',
+        startOffset: 10,
+        endOffset: 15,
+      },
+      {
+        name: '1-Click Text Transformations & Copy',
+        startOffset: 15,
+        endOffset: 20,
+      },
+    ],
+  });
   const faqJsonLd = getFaqSchema();
   const breadcrumbJsonLd = getBreadcrumbSchema([{ name: 'Home', url: '/' }]);
 
@@ -65,6 +102,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }}
       />
       <script
         type="application/ld+json"
@@ -90,15 +131,15 @@ export default function HomePage() {
         <CharacterCounter />
       </section>
 
-      {/* 2. How It Works: Visual Architecture & Process Infographic */}
+      {/* 2. How It Works: Interactive Video Guide & Architecture Infographic */}
       <section
         id="how-character-counter-works"
         aria-labelledby="how-it-works-heading"
-        className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-6"
+        className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs space-y-8"
       >
         <div className="space-y-2 text-center sm:text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 border border-blue-200/60">
-            <span>Visual Process Guide</span>
+            <span>Video Walkthrough &amp; Process Guide</span>
           </div>
           <h2
             id="how-it-works-heading"
@@ -107,42 +148,56 @@ export default function HomePage() {
             How the Online Character Counter Works
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-3xl">
-            CharCount.dev analyzes your text instantaneously directly in your web browser. Follow this 4-step workflow to count characters, inspect word density, verify social media limits, and clean formatting without sending data to any external server.
+            Watch our interactive video guide or explore the step-by-step architecture below to see how CharCount.dev analyzes text, counts characters with and without spaces, verifies social limits, and formats copy 100% inside your browser.
           </p>
         </div>
 
+        {/* Interactive HD Video Walkthrough with Chapters & Transcripts */}
+        <HowItWorksVideo />
+
         {/* Infographic Graphic with Responsive Picture & Alt Optimization */}
-        <figure className="w-full max-w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50/50 shadow-2xs">
-          <div className="w-full overflow-x-auto scrollbar-thin">
-            <picture className="block w-full">
-              <source
-                srcSet="/images/how-character-counter-works.svg"
-                type="image/svg+xml"
-              />
-              <source
-                srcSet="/images/how-character-counter-works.webp"
-                type="image/webp"
-              />
-              <img
-                src="/images/how-character-counter-works.png"
-                alt="Character Counter - How it works step-by-step text analysis process showing live character count with spaces, without spaces, word count, and platform limit meters"
-                width={1200}
-                height={520}
-                loading="eager"
-                decoding="async"
-                className="block w-full max-w-full h-auto object-contain select-none"
-              />
-            </picture>
+        <div className="space-y-4 pt-4 border-t border-slate-200/80">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="text-lg font-bold text-slate-900">
+              Visual Architecture &amp; Workflow Diagram
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500">
+              High-resolution vector architecture map of the CharCount.dev client-side execution cycle.
+            </p>
           </div>
-          <figcaption className="bg-slate-50 px-4 py-3 text-xs text-slate-600 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <span>
-              <strong>Figure 1:</strong> Step-by-step character counter workflow &mdash; input, local regex/grapheme engine, dual-metric tally, and one-click export.
-            </span>
-            <span className="text-[11px] text-slate-500 font-mono">
-              100% Client-Side &bull; Zero Server Latency
-            </span>
-          </figcaption>
-        </figure>
+
+          <figure className="w-full max-w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50/50 shadow-2xs">
+            <div className="w-full overflow-x-auto scrollbar-thin">
+              <picture className="block w-full">
+                <source
+                  srcSet="/images/how-character-counter-works.svg"
+                  type="image/svg+xml"
+                />
+                <source
+                  srcSet="/images/how-character-counter-works.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="/images/how-character-counter-works.png"
+                  alt="Character Counter - How it works step-by-step text analysis process showing live character count with spaces, without spaces, word count, and platform limit meters"
+                  width={1200}
+                  height={520}
+                  loading="eager"
+                  decoding="async"
+                  className="block w-full max-w-full h-auto object-contain select-none"
+                />
+              </picture>
+            </div>
+            <figcaption className="bg-slate-50 px-4 py-3 text-xs text-slate-600 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <span>
+                <strong>Figure 1:</strong> Step-by-step character counter workflow &mdash; input, local regex/grapheme engine, dual-metric tally, and one-click export.
+              </span>
+              <span className="text-[11px] text-slate-500 font-mono">
+                100% Client-Side &bull; Zero Server Latency
+              </span>
+            </figcaption>
+          </figure>
+        </div>
 
         {/* Step Breakdown Cards (matching HowTo schema) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">

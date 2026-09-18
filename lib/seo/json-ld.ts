@@ -165,6 +165,52 @@ export function getImageObjectSchema(params: {
   };
 }
 
+export interface VideoClipItem {
+  name: string;
+  startOffset: number;
+  endOffset?: number;
+  url?: string;
+}
+
+export function getVideoObjectSchema(params: {
+  name: string;
+  description: string;
+  thumbnailUrl: string[];
+  uploadDate: string;
+  duration: string;
+  contentUrl: string;
+  embedUrl: string;
+  clips?: VideoClipItem[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': `${params.contentUrl}#video`,
+    name: params.name,
+    description: params.description,
+    thumbnailUrl: params.thumbnailUrl,
+    uploadDate: params.uploadDate,
+    duration: params.duration,
+    contentUrl: params.contentUrl,
+    embedUrl: params.embedUrl,
+    inLanguage: 'en-US',
+    publisher: {
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+    },
+    ...(params.clips && params.clips.length > 0
+      ? {
+          hasPart: params.clips.map((clip) => ({
+            '@type': 'Clip',
+            name: clip.name,
+            startOffset: clip.startOffset,
+            ...(clip.endOffset ? { endOffset: clip.endOffset } : {}),
+            url: clip.url || `${params.embedUrl}?t=${clip.startOffset}`,
+          })),
+        }
+      : {}),
+  };
+}
+
 export function getAboutPageSchema(params: {
   name: string;
   description: string;

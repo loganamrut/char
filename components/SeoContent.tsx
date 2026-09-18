@@ -21,7 +21,7 @@ export function SeoContent() {
             href="#how-character-counter-works"
             className="flex items-center gap-1.5 text-blue-700 hover:text-blue-900 hover:underline font-medium"
           >
-            <span className="text-slate-400 font-mono">01.</span> How It Works (Diagram)
+            <span className="text-slate-400 font-mono">01.</span> How It Works (Video &amp; Guide)
           </a>
           <a
             href="#character-counter-cheat-sheet"
